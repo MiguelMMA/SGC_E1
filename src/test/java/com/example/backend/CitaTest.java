@@ -1,5 +1,7 @@
 package com.example.backend;
 
+import static org.junit.Assert.assertNotNull;
+
 import com.example.backend.models.entity.Cita;
 import com.example.backend.models.entity.Usuario;
 
@@ -30,6 +32,7 @@ public class CitaTest {
 	@Then("^Mensaje de cita creada correctamente$")
 	public void mensaje_de_cita_creada_correctamente() throws Throwable {
 	   Cita cita=new Cita();
+	   assertNotNull(cita);
 	}
 
 	@When("^Fecha incorrecta$")
