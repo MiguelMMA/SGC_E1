@@ -1,14 +1,9 @@
 language: java
-before_install:
- - chmod +x mvnw
 deploy:
   provider: heroku
   api_key:language: java
 script:
 - mvn clean
-dist: xenial
-services:
-  - xvfb
 notifications:
   slack: hisespacio:0qEQjO7RRhAMmk67zdatTrtr
 deploy:
