@@ -60,9 +60,6 @@ public class CitaRestController {
 	private String clave = "seguridad";
 
 	private Encriptador encriptador = new Encriptador(key, cipher, algoritmo, keysize, clave);
-
-	@Autowired 
-	private IEspecialidadService especialidadService;
 	
 	/**
 	 * obtener todas las citas
@@ -176,7 +173,7 @@ public class CitaRestController {
 		ArrayList<String> listaHuecosLibres = new ArrayList<String>();
 		Medico medico = usuarioService.findMedicoByDni(dniMedico);
 		Horario horario = horarioService.findHorarioByDnimedicoAndDiaAndMesAndAno(dniMedico, dia, mes, ano);
-		Especialidad especialidad=especialidadService.findByNombre(medico.getEspecialidad());
+		Especialidad especialidad=especialidadService.findEspecialidadByNombre(medico.getEspecialidad());
 		int duracionCita = especialidad.get_duracionCita();
 		
 		ArrayList<Date> listaCitas = horario.getListaCitas();
@@ -195,23 +192,9 @@ public class CitaRestController {
 		return listaHuecosLibres;
 	}
 
-	   
-    /** 
-     * Modificar la fecha de la cita
-     * @param teléfono
-     * @param modificarDatosContacto
-     */
-    @PutMapping("/citas/{id}")
-    public Cita modificarFechaCita(@PathVariable("id") ObjectId id, @Valid @RequestBody Cita cita) {
-    	cita.set_id(id);
-    	citaService.saveCita(cita);
-    	return cita;
-    	
-    }
     
     
     /**
-     * Obtener todas las especialidades
      * @return especialidades
      */
     @GetMapping("/citas/especialidades")
