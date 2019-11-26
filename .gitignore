@@ -1,5 +1,5 @@
 HELP.md
-#target/
+/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
@@ -35,3 +35,4 @@ build/
 *.snap
 *.index
 *.index
+/node_modules/
