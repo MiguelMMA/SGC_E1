@@ -4,5 +4,4 @@ before_install:
 deploy:
   provider: heroku
   api_key:
-    secure: 9416fe1c-ba23-4f9b-80fe-8e4973afbdc1
-  app: mantenimientoAppSanidad
+    secure: 0d0bd573-51df-442a-807d-ff680cbcb04b
