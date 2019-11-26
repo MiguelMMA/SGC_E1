@@ -1,2 +1,4 @@
 target/
 /bin/
+frontend/cliente/node_modules
+frontend/cliente/package.json
