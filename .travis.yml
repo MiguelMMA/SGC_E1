@@ -1,13 +1,17 @@
-
-
-
 language: java
 before_install:
  - chmod +x mvnw
 deploy:
   provider: heroku
-  api_key:
-    secure: e060e5e5-992d-4822-a783-592388b436d6
-  app: sgcequipo1
-  
-    
+  api_key:language: java
+script:
+- mvn clean
+dist: xenial
+services:
+  - xvfb
+notifications:
+  slack: hisespacio:0qEQjO7RRhAMmk67zdatTrtr
+deploy:
+    provider: heroku
+    api_key:
+        secure: 9416fe1c-ba23-4f9b-80fe-8e4973afbdc1
