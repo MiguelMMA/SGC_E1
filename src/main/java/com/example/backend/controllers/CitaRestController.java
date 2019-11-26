@@ -195,7 +195,6 @@ public class CitaRestController {
     
     
     /**
-     * Obtener todas las especialidades
      * @return especialidades
      */
     @GetMapping("/citas/especialidades")
