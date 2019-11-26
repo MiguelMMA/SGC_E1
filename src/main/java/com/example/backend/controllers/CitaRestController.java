@@ -60,9 +60,6 @@ public class CitaRestController {
 	private String clave = "seguridad";
 
 	private Encriptador encriptador = new Encriptador(key, cipher, algoritmo, keysize, clave);
-
-	@Autowired 
-	private IEspecialidadService especialidadService;
 	
 	/**
 	 * obtener todas las citas
