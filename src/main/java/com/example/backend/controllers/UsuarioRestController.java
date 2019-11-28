@@ -163,7 +163,7 @@ public class UsuarioRestController {
 		return usuario;
 
 	}
-
+	
 	/**
 	 * Modificar los datos de contacto del usuario
 	 * 
