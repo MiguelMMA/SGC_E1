@@ -39,7 +39,6 @@ import com.example.backend.models.services.IRolService;
 import com.example.backend.models.services.IUsuarioService;
 import com.example.backend.models.utiles.Encriptador;
 
-
 @CrossOrigin(value = "http://localhost:4200") // PARA DESARROLLO
 @RestController
 @RequestMapping("api")

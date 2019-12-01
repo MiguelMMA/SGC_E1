@@ -36,7 +36,9 @@ import com.example.backend.models.services.IUsuarioService;
 import com.example.backend.models.utiles.Encriptador;
 
 //@CrossOrigin(value = "https://sgcequipo1.herokuapp.com") 
+
 @CrossOrigin(value = "http://localhost:4200")
+
 @RestController
 @RequestMapping("api")
 public class CitaRestController {	
@@ -66,10 +68,16 @@ public class CitaRestController {
 	/**
 	 * obtener todas las citas
 	 * @return citas
+	 * @throws UnsupportedEncodingException
 	 */
 	@GetMapping("/citas")
-	public List<Cita> getAllCitas() {
-		return citaService.findAll();
+	public List<Cita> getAllCitas() throws UnsupportedEncodingException {
+		List<Cita> listaCitas = citaService.findAll();
+		List<Cita> listaCitasDesencriptadas = new ArrayList<>();
+		for (int i = 0; i < listaCitas.size(); i++) {
+			listaCitasDesencriptadas.add(encriptador.desencriptarCita(listaCitas.get(i)));
+		}
+		return listaCitasDesencriptadas;
 	}
 
 	/**
