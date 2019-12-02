@@ -1,21 +1,11 @@
 package com.example.backend.controllers;
 
 import java.util.List;
-import java.io.IOException;
+import java.util.Map;
 import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-//import sun.misc.BASE64Decoder;
-//import sun.misc.BASE64Encoder;
-import java.util.Base64;
 import javax.validation.Valid;
 
 import org.bson.types.ObjectId;
@@ -29,8 +19,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.backend.models.dao.IMedicoDAO;
+import com.example.backend.models.dao.IPacienteMedicoDAO;
 import com.example.backend.models.entity.Especialidad;
 import com.example.backend.models.entity.Medico;
+import com.example.backend.models.entity.PacienteMedico;
 import com.example.backend.models.entity.Rol;
 import com.example.backend.models.entity.Usuario;
 import com.example.backend.models.respuesta.RespuestaLogin;
@@ -45,6 +38,11 @@ import com.example.backend.models.utiles.Encriptador;
 @RequestMapping("api")
 public class UsuarioRestController {
 	
+	@Autowired
+	private IPacienteMedicoDAO pacienteMedicoRepo;
+	
+	@Autowired
+	private IMedicoDAO medicoRepo;
 
 	@Autowired
 	private IUsuarioService usuarioService;
@@ -127,7 +125,43 @@ public class UsuarioRestController {
 		usuarioService.saveUser(usuario);
 		return usuario;
 	}
+	
+	@PostMapping("/pacienteMedico")
+	public PacienteMedico crearPacienteMedico(@Valid @RequestBody Map<String, String> jso ) throws Exception {
+		String dniPaciente = jso.get("dniPaciente");
+		String dniMedico = jso.get("dniMedico");
+		Medico med = medicoRepo.findByDni(dniMedico);
+		Usuario user = usuarioService.findUserByDni(dniPaciente);
+		if(med == null) {
+			throw new Exception("El medico asignado no existe");
+		}
+		if(user == null) {	
+			throw new Exception("El usuario asignado no existe");
+		}
+		PacienteMedico pacMed = new PacienteMedico(dniPaciente, dniMedico, med.getEspecialidad());
+		return pacMed;
+	}
 
+	@PostMapping("/medico")
+	public Medico registrarMedico(@Valid @RequestBody Map<String, String> jso) throws Exception {
+		String dniMedico = jso.get("dniMedico");
+		List<Usuario> listaUsuarios = getAllUsers();
+		Usuario user = null;
+		for(int i = 0; i < listaUsuarios.size(); i++) {
+			if(dniMedico.equals(listaUsuarios.get(i).getDni())) {
+				user = listaUsuarios.get(i);
+			}
+		}
+		if(user == null) {
+			throw new Exception("El usuario no existe");
+		} else {
+			String especialidad = jso.get("especialidad");
+			Medico med = (Medico) user;
+			med.setEspecialidad(especialidad);
+			medicoRepo.insert(med);
+			return med;
+		}
+	}
 	/**
 	 * Modificar un usuario para hacerlo médico
 	 * 
