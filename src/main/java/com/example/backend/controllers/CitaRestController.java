@@ -37,7 +37,7 @@ import com.example.backend.models.utiles.Encriptador;
 
 //@CrossOrigin(value = "https://sgcequipo1.herokuapp.com") 
 
-@CrossOrigin(value = "http://localhost:4200")
+@CrossOrigin(value = "*")
 
 @RestController
 @RequestMapping("api")
