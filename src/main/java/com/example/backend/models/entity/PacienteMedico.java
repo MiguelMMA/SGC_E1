@@ -1,7 +1,10 @@
 package com.example.backend.models.entity;
 
+import org.bson.types.ObjectId;
+
 public class PacienteMedico {
 
+    private ObjectId _id;
 	private String dniPaciente;
 	private String dniMedico;
 	private String especialidad;
