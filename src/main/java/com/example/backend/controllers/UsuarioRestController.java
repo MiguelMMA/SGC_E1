@@ -139,6 +139,7 @@ public class UsuarioRestController {
 			throw new Exception("El usuario asignado no existe");
 		}
 		PacienteMedico pacMed = new PacienteMedico(dniPaciente, dniMedico, med.getEspecialidad());
+		
 		return pacMed;
 	}
 
