@@ -155,13 +155,15 @@ public class UsuarioRestController {
 	public Medico registrarMedico(@Valid @RequestBody Map<String, String> jso) throws Exception {
 		String dniMedico = jso.get("dniMedico");
 		List<Usuario> listaUsuarios = getAllUsers();
-		Usuario user = null;
+		Usuario user = new Usuario();
+		boolean encontrado = true;
 		for(int i = 0; i < listaUsuarios.size(); i++) {
 			if(dniMedico.equals(listaUsuarios.get(i).getDni())) {
 				user = listaUsuarios.get(i);
+				encontrado = false;
 			}
 		}
-		if(user == null) {
+		if(encontrado) {
 			throw new Exception("El usuario no existe");
 		} else {
 			String especialidad = jso.get("especialidad");
