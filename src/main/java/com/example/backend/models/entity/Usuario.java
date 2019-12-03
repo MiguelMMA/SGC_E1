@@ -44,7 +44,30 @@ public class Usuario {
 
     private Date fechaNacimiento;
 
-    public String get_id() {
+    public Usuario() {
+    	
+    }
+    
+    public Usuario(String dni, String password, String tipo, String nombre, String apellidos,
+			String direccion, String telefono, String email, String sexo, String localidad, String centroMedico,
+			String medico, Date fechaNacimiento) {
+		super();
+		this.dni = dni;
+		this.password = password;
+		this.tipo = tipo;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.email = email;
+		this.sexo = sexo;
+		this.localidad = localidad;
+		this.centroMedico = centroMedico;
+		this.medico = medico;
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String get_id() {
 	return _id.toHexString();
     }
 
