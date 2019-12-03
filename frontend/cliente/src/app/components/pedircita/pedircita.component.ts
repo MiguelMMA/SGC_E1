@@ -41,7 +41,7 @@ export class PedircitaComponent implements OnInit {
   }
   */
   obtenerespecialidades() {
-    return this.citaService.getAllEspecialidades().subscribe(
+    return this.citaService.getAllEspecialidades(this.usuario.dni).subscribe(
       response => {
         this.especialidades = response;
         console.log(this.especialidades);
@@ -52,7 +52,7 @@ export class PedircitaComponent implements OnInit {
 
   obtenerMedicosEspecialidad() {
     console.log(this.especialidadElegida);
-    return this.citaService.getMedicosEspecialidad(this.especialidadElegida).subscribe(
+    return this.citaService.getMedicosEspecialidad(this.especialidadElegida, this.usuario.dni).subscribe(
       response => {
         this.listaMedicos = response;
         this.medicoElegido = this.listaMedicos[0];

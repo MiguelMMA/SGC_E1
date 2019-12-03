@@ -91,17 +91,17 @@ export class CitaService {
   }
 
 
-  getAllEspecialidades(): Observable<Especialidad[]>{
-    this.tipo_data = '/especialidades';
-    return this.httpClient.get<Especialidad[]>(this.URL_ENDPOINT + this.tipo_data)
+  getAllEspecialidades(dniPaciente: string): Observable<Especialidad[]>{
+    this.tipo_data = '/especialidades' + dniPaciente;
+    return this.httpClient.post<Especialidad[]>(this.URL_ENDPOINT + this.tipo_data)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
 
-  getMedicosEspecialidad(nombreEspecialidad: string): Observable<string[]>{
-    this.tipo_data = '/especialidades/' + nombreEspecialidad;
+  getMedicosEspecialidad(nombreEspecialidad: string, dni: string): Observable<string[]>{
+    this.tipo_data = '/especialidades/' + nombreEspecialidad + '/' + dni;
     return this.httpClient.get<string[]>(this.URL_ENDPOINT + this.tipo_data)
       .pipe(
         retry(1),
