@@ -126,6 +126,15 @@ public class UsuarioRestController {
 		return usuario;
 	}
 	
+	@PostMapping("/eliminarPacienteMedico")
+	public PacienteMedico eliminarPacienteMedico(@Valid @RequestBody Map<String, String> jso) throws Exception {
+		String dniPaciente = jso.get("dniPaciente");
+		String dniMedico = jso.get("dniMedico");
+		PacienteMedico pacMed = pacienteMedicoRepo.findByCustom(dniPaciente, dniMedico);
+		pacienteMedicoRepo.delete(pacMed);
+		return pacMed;
+	}
+	
 	@PostMapping("/pacienteMedico")
 	public PacienteMedico crearPacienteMedico(@Valid @RequestBody Map<String, String> jso ) throws Exception {
 		String dniPaciente = jso.get("dniPaciente");
@@ -139,7 +148,6 @@ public class UsuarioRestController {
 			throw new Exception("El usuario asignado no existe");
 		}
 		PacienteMedico pacMed = new PacienteMedico(dniPaciente, dniMedico, med.getEspecialidad());
-		
 		return pacMed;
 	}
 
