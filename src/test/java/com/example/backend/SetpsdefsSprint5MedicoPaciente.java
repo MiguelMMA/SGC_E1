@@ -1,6 +1,7 @@
 package com.example.backend;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import org.json.JSONObject;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.TestContextManager;
 
 import com.example.backend.models.dao.IPacienteMedicoDAO;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -79,6 +79,33 @@ public class SetpsdefsSprint5MedicoPaciente {
 				
 			}
 		
+	}
+	@Then("^borro la relacion dni-user \"([^\"]*)\", dni-medico \"([^\"]*)\", Response \"([^\"]*)\"$")
+	public void borro_la_relacion_dni_user_dni_medico_Response(String arg1, String arg2, String arg3) {
+		if(arg3.equals("OK")) {
+			MediaType mediaType = MediaType.parse("application/json");
+			RequestBody body = RequestBody.create(mediaType, "{\"dniPaciente\":\""+arg1+"\",\"dniMedico\":\""+arg2+"\"}");
+			 request = new Request.Builder()
+			  .url("https://app-sanidad.herokuapp.com/eliminarMedicoPaciente")
+			  .post(body)
+			  .addHeader("Content-Type", "application/json")
+			  .addHeader("cache-control", "no-cache")
+			  .addHeader("Postman-Token", "af9231cc-f85a-4fbc-a63a-3c3ea6a900a6")
+			  .build();
+		}
+	}
+	
+	@Then("^la relacion ha sido borrada \"([^\"]*)\", dni-medico \"([^\"]*)\", Response \"([^\"]*)\"$")
+	public void la_relacion_ha_sido_borrada_dni_medico_Response(String arg1, String arg2, String arg3) {
+		   if(arg3.equals("OK")) {
+				try {
+					//		pacienteMedico = pacienteMedicoRepo.findByCustom(arg1,arg2);
+					//		assertNull(pacienteMedico);
+				} catch (Exception e) {
+					fail("debería poder encontrarse la relación");
+				}
+			 
+		   }
 	}
 
 }
