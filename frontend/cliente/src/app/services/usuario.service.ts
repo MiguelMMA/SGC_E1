@@ -13,7 +13,7 @@ import { RespuestLogin } from '../respuesta/respuesta-login';
 export class UsuarioService {
 
 
-  private URL_ENDPOINT: string = "https://mantenimiento-sanidad.herokuapp.com/api/usuarios";
+  private URL_ENDPOINT: string = "https://servidor-mantenimiento.herokuapp.com/api/usuarios";
   //private URL_ENDPOINT: string = "http://localhost:8080/api/usuarios";  // PARA CUANDO SE DESARROLLA
   private tipo_data: string = '';
 

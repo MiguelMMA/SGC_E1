@@ -11,7 +11,7 @@ import { Especialidad } from '../entity/Especialidad';
 export class CitaService {
 
 
-  private URL_ENDPOINT: string = "https://mantenimiento-sanidad.herokuapp.com/api/citas";
+  private URL_ENDPOINT: string = "https://servidor-mantenimiento.herokuapp.com/api/citas";
   //private URL_ENDPOINT: string = "http://localhost:8080/api/citas";  // PARA CUANDO SE DESARROLLA
   private tipo_data: string = '';
 
