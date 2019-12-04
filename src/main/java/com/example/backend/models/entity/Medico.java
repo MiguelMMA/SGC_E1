@@ -3,7 +3,9 @@ package com.example.backend.models.entity;
 import java.util.Date;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(value = "medicos")
 public class Medico extends Usuario {
 
     private String especialidad;

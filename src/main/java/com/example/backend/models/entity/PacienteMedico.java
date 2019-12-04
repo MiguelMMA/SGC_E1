@@ -1,7 +1,9 @@
 package com.example.backend.models.entity;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(value = "pacienteMedico")
 public class PacienteMedico {
 
     private ObjectId _id;
