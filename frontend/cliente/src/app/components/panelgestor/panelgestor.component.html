@@ -1,15 +1,22 @@
-<button type="button" (click)="modificardatoscontacto(usuario)" style="margin-left:20%" class="btn btn-primary" id="pacienteMedico">Paciente-Médico</button>
 <br>
 <br>
+<div class="container">
+<div class="form-group">
+<button type="button" (click)="modificardatoscontacto(usuario)" style="margin-left:10%" class="btn btn-primary" id="pacienteMedico">Paciente-Médico</button>
+</div>
+<br>
+	<div class="table-responsive" position="fixed">
 <table class="table">
-    <thead class="thead-dark">
+    <thead class="thead-dark" position="fixed">
         <tr>
-            <th scope="col" style="width: 200px;">DNI</th>
-            <th scope="col" style="width: 100px;">Nombre</th>
-            <th scope="col" style="width: 300px;">Apellidos</th>
-            <th scope="col" style="width: 100px;">Sexo</th>
-            <th scope="col" style="width: 200px;">Fecha Nacimiento</th>
-            <th scope="col" style="width: 100px;">Tipo</th>
+            <th scope="col" style="width: 6px;">DNI</th>
+            <th scope="col" style="width: 6px;">Nombre</th>
+            <th scope="col" style="width: 6px;">Apellidos</th>
+            <th scope="col" style="width: 6px;">Sexo</th>
+            <th scope="col" style="width: 6px;">Fecha Nacimiento</th>
+            <th scope="col" style="width: 6px;">Tipo</th>
+            <th scope="col" style="width: 6px;">Datos Personales</th>
+            <th scope="col" style="width: 6px;">Historial Citas</th>
         </tr>
     </thead>
     <tbody>
@@ -20,10 +27,12 @@
             <td>{{usuario.sexo}}</td>
             <td>{{usuario.fechaNacimiento | date:"short"}}</td>
             <td>{{usuario.tipo}}</td>
-            <td><button type="button" (click)="modificardatospersonales(usuario)" style="margin: 10px" class="btn btn-primary" id="datospersonales-button">Modificar datos personales</button></td>
-            <td><button type="button" (click)="historialcitas(usuario)" style="margin: 10px" class="btn btn-primary" id="historialcitas-button">Historial Citas</button></td>
+            <td><button type="button" (click)="modificardatospersonales(usuario)" style="margin: 10px" class="btn btn-primary" id="datospersonales-button">Modificar</button></td>
+            <td><button type="button" (click)="historialcitas(usuario)" style="margin: 10px" class="btn btn-primary" id="historialcitas-button">Historial</button></td>
         </tr>
     
     </tbody>
     <br>
 </table>
+</div>
+</div>

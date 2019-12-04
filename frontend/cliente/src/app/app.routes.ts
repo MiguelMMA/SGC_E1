@@ -9,6 +9,7 @@ import { CambiarcitaComponent } from './components/cambiarcita/cambiarcita.compo
 import { PanelgestorComponent } from './components/panelgestor/panelgestor.component';
 import { CambiodatospersonalesComponent } from './components/cambiodatospersonales/cambiodatospersonales.component';
 import { PacienteMedicoComponent } from './components/pacientemedico/pacientemedico.component';
+import { AsignarHorarioComponent } from './components/asignarhorario/asignarhorario.component';
 
 
 
@@ -24,6 +25,7 @@ const APP_ROUTES: Routes = [
     { path: 'panelgestor', component:PanelgestorComponent},
     { path: 'cambiodatospersonales', component: CambiodatospersonalesComponent},
     { path: 'pacientemedico', component: PacienteMedicoComponent},
+    { path: 'asignarhorario', component: AsignarHorarioComponent},
     { path: '**', pathMatch: 'full', redirectTo:'login' },
    
 

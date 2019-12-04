@@ -36,6 +36,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/asignarhorario/asignarhorario.component.html":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/asignarhorario/asignarhorario.component.html ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>hola</p>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/cambiarcita/cambiarcita.component.html":
 /*!*********************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/cambiarcita/cambiarcita.component.html ***!
@@ -84,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <h1>Cambio Datos Personales</h1>\r\n\r\n    <form class=\"columnas\">\r\n        <div class=\"form-group\">\r\n            <label for=\"Nombre\">Nombre</label>\r\n            <input class=\"form-control\" [(ngModel)]=\"usuario.nombre\" #email=ngModel name=\"nombre\" id=\"nombre\" placeholder=\"Nombre\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"Apellidos\">Apellidos</label>\r\n            <input class=\"form-control\" [(ngModel)]=\"usuario.apellidos\" #telefono=ngModel name=\"apellidos\" id=\"apellidos\" placeholder=\"Apellidos\">\r\n        </div>\r\n        <div class=\"form-group \">\r\n            <label for=\"Sexo \">Sexo</label>\r\n            <select class=\"form-control\" required [(ngModel)]=\"usuario.sexo\" #sexo=\"ngModel\" name=\"sexo\">\r\n            <option>Hombre</option> \r\n            <option>Mujer</option> \r\n            </select>\r\n        </div>\r\n        <div class=\"form-group \">\r\n            <label for=\"Tipo\">Tipo</label>\r\n            <select class=\"form-control\" required [(ngModel)]=\"usuario.tipo\" #tipo=\"ngModel\" name=\"tipo\">\r\n            <option>MEDICO</option>\r\n            <option>PACIENTE</option>\r\n            <option>GESTOR</option>\r\n            </select>\r\n        </div>\r\n        <p>\r\n        </p>\r\n        <button type=\"button\" (click)=\"modificardatospersonales()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"cambiardatospersonales-button\">Cambiar Datos Personales</button>\r\n    </form>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <h1>Cambio Datos Personales</h1>\n\n    <form class=\"columnas\">\n        <div class=\"form-group\">\n            <label for=\"Nombre\">Nombre</label>\n            <input class=\"form-control\" [(ngModel)]=\"usuario.nombre\" #email=ngModel name=\"nombre\" id=\"nombre\" placeholder=\"Nombre\">\n        </div>\n        <div class=\"form-group\">\n            <label for=\"Apellidos\">Apellidos</label>\n            <input class=\"form-control\" [(ngModel)]=\"usuario.apellidos\" #telefono=ngModel name=\"apellidos\" id=\"apellidos\" placeholder=\"Apellidos\">\n        </div>\n        <div class=\"form-group \">\n            <label for=\"Sexo \">Sexo</label>\n            <select class=\"form-control\" required [(ngModel)]=\"usuario.sexo\" #sexo=\"ngModel\" name=\"sexo\">\n            <option>Hombre</option> \n            <option>Mujer</option> \n            </select>\n        </div>\n        <div class=\"form-group \">\n            <label for=\"Tipo\">Tipo</label>\n            <select class=\"form-control\" required [(ngModel)]=\"usuario.tipo\" #tipo=\"ngModel\" name=\"tipo\">\n            <option>MEDICO</option>\n            <option>PACIENTE</option>\n            <option>GESTOR</option>\n            </select>\n        </div>\n        <p>\n        </p>\n        <button type=\"button\" (click)=\"modificardatospersonales()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"cambiardatospersonales-button\">Cambiar Datos Personales</button>\n    </form>\n</div>");
 
 /***/ }),
 
@@ -97,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"containerA\">\r\n\r\n\r\n\r\n<button type=\"button\" *ngIf=\"esMedico || !estaEnVistaMedico && !esPaciente\" (click)=\"cambiarMedico_Paciente()\" style=\"margin: 10px\" class=\"btn btn-primary\">Medico</button>\r\n<br><br><br>\r\n\r\n\r\n<table class=\"table\">\r\n    <thead class=\"thead-dark\">\r\n        <tr>\r\n            <th scope=\"col\" style=\"width:5%\">Fecha</th>\r\n            <th scope=\"col\" style=\"width:5%\">Consulta</th>\r\n            <th scope=\"col\" style=\"width:5%\" *ngIf=\"!esMedico\">Médico</th>\r\n            <th scope=\"col\" style=\"width:5%\" *ngIf=\"esMedico\">Paciente</th>\r\n            <th scope=\"col\" style=\"width:5%\">Especialidad</th>\r\n            <th scope=\"col\" style=\"width:5%\">Borrar</th>\r\n            <th scope=\"col\" style=\"width:5%\">Modificar</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let cita of citas\">\r\n            <td scope=\"row\">{{cita.fecha | date:\"short\"}}</td>\r\n            <td>{{cita.consulta}}</td>\r\n            <td>{{cita.dniMedico}}</td>\r\n            <td>{{cita.especialidad}}</td>\r\n            <td><button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"eliminarcita(cita)\"  class=\"btn btn-primary\" id=\"eliminarcita-button\">Eliminar Cita</button></td>\r\n            <td><button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"cambiarcita(cita)\"  class=\"btn btn-primary\" id=\"cambiarcita-button\">Cambiar Cita</button></td>\r\n        </tr>\r\n    </tbody>\r\n    <br>\r\n</table>\r\n <br>\r\n  <br>\r\n   <br>\r\n  \r\n   \r\n\r\n\r\n\r\n  </div>   \r\n  <div class=\"container\" style=\"margin-left:10%\">  \r\n    <div class=\"dropdown\">\r\n    \t\r\n            <a id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" class=\"btn btn-primary\" data-target=\"#\">\r\n               Opciones Usuario \r\n            </a>\r\n    \t\t<ul class=\"dropdown-menu multi-level\" role=\"menu\" aria-labelledby=\"dropdownMenu\">\r\n    \t\t\r\n             <button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"pedircita()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"pedircita-button\">Pedir Cita</button>\r\n             <br>\r\n             <button type=\"button\" (click)=\"modificardatoscontacto()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatos-button\">Modificar Datos Contacto</button>\r\n\t\t\t<br>\r\n\t\t\t <button type=\"button\" (click)=\"cambiarcontrasena()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"cambiocontrasena-button\">Cambiar contraseña</button>\r\n\t\t\t<br>\r\n\t\t\t <button type=\"button\" (click)=\"modificardatosPersonales()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatosPersonales-button\">Modificar Datos Personales</button>\r\n            <br>\r\n            </ul>\r\n             </div>\r\n              \r\n            \r\n        </div>\r\n   \r\n<!-- <button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"pedircita()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"pedircita-button\">Pedir Cita</button>\r\n<button type=\"button\" (click)=\"modificardatoscontacto()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatos-button\">Modificar Datos Contacto</button>\r\n<button type=\"button\" (click)=\"cambiarcontrasena()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"cambiocontrasena-button\">Cambiar contraseña</button>\r\n<button type=\"button\" (click)=\"modificardatosPersonales()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatosPersonales-button\">Modificar Datos Personales</button>-->");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"containerA\">\n\n\n\n<button type=\"button\" *ngIf=\"esMedico || !estaEnVistaMedico && !esPaciente\" (click)=\"cambiarMedico_Paciente()\" style=\"margin: 10px\" class=\"btn btn-primary\">Medico</button>\n<br><br><br>\n\n\n<table class=\"table\">\n    <thead class=\"thead-dark\">\n        <tr>\n            <th scope=\"col\" style=\"width:5%\">Fecha</th>\n            <th scope=\"col\" style=\"width:5%\">Consulta</th>\n            <th scope=\"col\" style=\"width:5%\" *ngIf=\"!esMedico\">Médico</th>\n            <th scope=\"col\" style=\"width:5%\" *ngIf=\"esMedico\">Paciente</th>\n            <th scope=\"col\" style=\"width:5%\">Especialidad</th>\n            <th scope=\"col\" style=\"width:5%\">Borrar</th>\n            <th scope=\"col\" style=\"width:5%\">Modificar</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let cita of citas\">\n            <td scope=\"row\">{{cita.fecha | date:\"short\"}}</td>\n            <td>{{cita.consulta}}</td>\n            <td>{{cita.dniMedico}}</td>\n            <td>{{cita.especialidad}}</td>\n            <td><button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"eliminarcita(cita)\"  class=\"btn btn-primary\" id=\"eliminarcita-button\">Eliminar Cita</button></td>\n            <td><button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"cambiarcita(cita)\"  class=\"btn btn-primary\" id=\"cambiarcita-button\">Cambiar Cita</button></td>\n        </tr>\n    </tbody>\n    <br>\n</table>\n <br>\n  <br>\n   <br>\n  \n   \n\n\n\n  </div>   \n  <div class=\"container\" style=\"margin-left:10%\">  \n    <div class=\"dropdown\">\n    \t\n            <a id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" class=\"btn btn-primary\" data-target=\"#\">\n               Opciones Usuario \n            </a>\n    \t\t<ul class=\"dropdown-menu multi-level\" role=\"menu\" aria-labelledby=\"dropdownMenu\">\n    \t\t\n             <button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"pedircita()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"pedircita-button\">Pedir Cita</button>\n             <br>\n             <button type=\"button\" (click)=\"modificardatoscontacto()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatos-button\">Modificar Datos Contacto</button>\n\t\t\t<br>\n\t\t\t <button type=\"button\" (click)=\"cambiarcontrasena()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"cambiocontrasena-button\">Cambiar contraseña</button>\n\t\t\t<br>\n\t\t\t <button type=\"button\" (click)=\"modificardatosPersonales()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatosPersonales-button\">Modificar Datos Personales</button>\n            <br>\n            </ul>\n             </div>\n              \n            \n        </div>\n   \n<!-- <button type=\"button\" *ngIf=\"!esMedico || !estaEnVistaMedico\" (click)=\"pedircita()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"pedircita-button\">Pedir Cita</button>\n<button type=\"button\" (click)=\"modificardatoscontacto()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatos-button\">Modificar Datos Contacto</button>\n<button type=\"button\" (click)=\"cambiarcontrasena()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"cambiocontrasena-button\">Cambiar contraseña</button>\n<button type=\"button\" (click)=\"modificardatosPersonales()\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"modificardatosPersonales-button\">Modificar Datos Personales</button>-->");
 
 /***/ }),
 
@@ -149,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br><br>\r\n<div class=\"container\">\r\n    <h2>Asignar Médico a Paciente</h2>\r\n\r\n    <form class=\"columnas\">\r\n        <div class=\"form-group\">\r\n            <label for=\"dniPaciente\">DNI Paciente</label>\r\n            <input class=\"form-control\"  #dniP name=\"dniP\" id=\"dniP\" placeholder=\" Introduzca DNI Paciente\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"dniMedico\">DNI Medico</label>\r\n            <input class=\"form-control\"  #dniM name=\"dniM\" id=\"dniM\" placeholder=\"Introduzca DNI Medico\">\r\n        </div>\r\n        <p>\r\n        </p>\r\n        <button type=\"button\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"asignarPM\">Asignar</button>\r\n    </form>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<br><br>\n<div class=\"container\">\n    <h2>Asignar Médico a Paciente</h2>\n\n    <form class=\"columnas\">\n        <div class=\"form-group\">\n            <label for=\"dniPaciente\">DNI Paciente</label>\n            <input class=\"form-control\"  #dniP name=\"dniP\" id=\"dniP\" placeholder=\" Introduzca DNI Paciente\">\n        </div>\n        <div class=\"form-group\">\n            <label for=\"dniMedico\">DNI Medico</label>\n            <input class=\"form-control\"  #dniM name=\"dniM\" id=\"dniM\" placeholder=\"Introduzca DNI Medico\">\n        </div>\n        <p>\n        </p>\n        <button type=\"button\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"asignarPM\">Asignar</button>\n    </form>\n</div>");
 
 /***/ }),
 
@@ -175,7 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br><br>\r\n<div class=\"container\">\r\n\r\n    <h1>Pedir cita médica</h1>\r\n\r\n    <form class=\"columnas col col-md-12\">\r\n        <div class=\"columna1 col-md-6\">\r\n            <label class=\"container\">\r\n                <br>\r\n                    <input type=\"radio\" name=\"check\" id=\"check\" value=\"1\" (click)=\"mostrarEspecialidad(0)\" checked>Médico de cabecera\r\n                    <br>\r\n                    <input type=\"radio\" name=\"check\" id=\"check\" value=\"2\" (click)=\"mostrarEspecialidad(1)\">Especialista\r\n                    <br> \r\n            </label>\r\n            <div class=\"columna2 col-md-6\" *ngIf=\"!esMedicoCabecera\">\r\n                <div class=\"form-group\" id=\"especialistas\">\r\n                    <label>Elige especialidad  </label>\r\n                    <select class=\"form-control\" required [(ngModel)]=\"especialidadElegida\" [ngModelOptions]=\"{standalone: true}\" #especialidadEscogida=\"ngModel\" (change)=obtenerMedicosEspecialidad()>\r\n                        <option *ngFor=\"let especialidad of especialidades\">{{especialidad._nombre}}</option>\r\n                    </select>\r\n                    <div *ngIf=\"especialidadEscogida.invalid && (especialidadEscogida.dirty || especialidadEscogida.touched) && especialidadEscogida.value === '' \" class=\"alert alert-danger\">\r\n                        El campo especialidad es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\" id=\"medicos\">\r\n                    <label>Elige médico  </label>\r\n                    <select class=\"form-control\" required [(ngModel)]=\"medicoElegido\" [ngModelOptions]=\"{standalone: true}\" #medicoEscogido=\"ngModel\">\r\n                        <option *ngFor=\"let medico of listaMedicos\">{{medico}}</option>\r\n                    </select>\r\n                    <div *ngIf=\"medicoEscogido.invalid && (medicoEscogido.dirty || medicoEscogido.touched) && medicoEscogido.value === '' \" class=\"alert alert-danger\">\r\n                        El campo medico es obligatorio\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"columna1 col-md-6\">\r\n            <div class=\"form-group\">\r\n                <br>Selecciona la fecha deseada:<br>\r\n                <input class=\"form-control\" type=\"date\" #fecha name=\"fecha\" step=\"1\" min=\"2019-01-01\" max=\"2020-12-31\" value=\"2019-11-12\" required>\r\n                <br> Selecciona la hora deseada: <br>\r\n                <input class=\"form-control\" type=\"time\" #hora name=\"hora\" id=\"hora\" min=\"07:00\" max=\"15:00\" step=\"900\">\r\n            </div>\r\n            <button type=\"button\" (click)=\"anadircita(fecha.value, hora.value)\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"pedircita-button\">Pedir cita</button>\r\n        </div>\r\n    </form>\r\n\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<br><br>\n<div class=\"container\">\n\n    <h1>Pedir cita médica</h1>\n\n    <form class=\"columnas col col-md-12\">\n        <div class=\"columna1 col-md-6\">\n            <label class=\"container\">\n                <br>\n                    <input type=\"radio\" name=\"check\" id=\"check\" value=\"1\" (click)=\"mostrarEspecialidad(0)\" checked>Médico de cabecera\n                    <br>\n                    <input type=\"radio\" name=\"check\" id=\"check\" value=\"2\" (click)=\"mostrarEspecialidad(1)\">Especialista\n                    <br> \n            </label>\n            <div class=\"columna2 col-md-6\" *ngIf=\"!esMedicoCabecera\">\n                <div class=\"form-group\" id=\"especialistas\">\n                    <label>Elige especialidad  </label>\n                    <select class=\"form-control\" required [(ngModel)]=\"especialidadElegida\" [ngModelOptions]=\"{standalone: true}\" #especialidadEscogida=\"ngModel\" (change)=obtenerMedicosEspecialidad()>\n                        <option *ngFor=\"let especialidad of especialidades\">{{especialidad._nombre}}</option>\n                    </select>\n                    <div *ngIf=\"especialidadEscogida.invalid && (especialidadEscogida.dirty || especialidadEscogida.touched) && especialidadEscogida.value === '' \" class=\"alert alert-danger\">\n                        El campo especialidad es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group\" id=\"medicos\">\n                    <label>Elige médico  </label>\n                    <select class=\"form-control\" required [(ngModel)]=\"medicoElegido\" [ngModelOptions]=\"{standalone: true}\" #medicoEscogido=\"ngModel\">\n                        <option *ngFor=\"let medico of listaMedicos\">{{medico}}</option>\n                    </select>\n                    <div *ngIf=\"medicoEscogido.invalid && (medicoEscogido.dirty || medicoEscogido.touched) && medicoEscogido.value === '' \" class=\"alert alert-danger\">\n                        El campo medico es obligatorio\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"columna1 col-md-6\">\n            <div class=\"form-group\">\n                <br>Selecciona la fecha deseada:<br>\n                <input class=\"form-control\" type=\"date\" #fecha name=\"fecha\" step=\"1\" min=\"2019-01-01\" max=\"2020-12-31\" value=\"2019-11-12\" required>\n                <br> Selecciona la hora deseada: <br>\n                <input class=\"form-control\" type=\"time\" #hora name=\"hora\" id=\"hora\" min=\"07:00\" max=\"15:00\" step=\"900\">\n            </div>\n            <button type=\"button\" (click)=\"anadircita(fecha.value, hora.value)\" style=\"margin: 10px\" class=\"btn btn-primary\" id=\"pedircita-button\">Pedir cita</button>\n        </div>\n    </form>\n\n</div>");
 
 /***/ }),
 
@@ -188,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br>\r\n<div class=\"container\">\r\n    <br>\r\n    <h2>Registro usuario</h2>\r\n    <br>\r\n    <form class=\"columnas col-md-12\">\r\n        <div class=\"row\">\r\n            <div class=\"columna1 col-md-6\">\r\n                <div class=\"form-group\">\r\n                    <label for=\"Dni\">Dni</label>\r\n                    <input class=\"form-control\" required [(ngModel)]=\"usuario.dni\" #dni=\"ngModel\" name=\"dni\" id=\"dni\" placeholder=\"dni \">\r\n                    <div *ngIf=\"dni.invalid && (dni.dirty || dni.touched) && dni.value === '' \" class=\"alert alert-danger\">\r\n                        El campo dni es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label for=\"Password\">Contraseña</label>\r\n                    <input type=\"password\" required class=\"form-control\" [(ngModel)]=\"usuario.password\" #password=\"ngModel\" name=\"password\" id=\"password\" placeholder=\"contraseña\">\r\n                    <div *ngIf=\"password.invalid && (password.dirty || password.touched) && password.value === '' \" class=\"alert alert-danger\">\r\n                        El campo password es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label for=\"Nombre\">Nombre</label>\r\n                    <input class=\"form-control\" required [(ngModel)]=\"usuario.nombre\" #nombre=\"ngModel\" name=\"nombre\" id=\"Nombre\" placeholder=\"nombre\">\r\n                    <div *ngIf=\"nombre.invalid && (nombre.dirty || nombre.touched) && nombre.value === '' \" class=\"alert alert-danger\">\r\n                        El campo nombre es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label for=\"Apellidos\">Apellidos</label>\r\n                    <input class=\"form-control\" required [(ngModel)]=\"usuario.apellidos\" #apellidos=\"ngModel\" name=\"apellidos\" id=\"Apellidos\" placeholder=\"apellidos\">\r\n                    <div *ngIf=\"apellidos.invalid && (apellidos.dirty || apellidos.touched) && apellidos.value === '' \" class=\"alert alert-danger\">\r\n                        El campo apellidos es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group \">\r\n                    <label for=\"Email \">Email</label>\r\n                    <input class=\"form-control\" required type=\"email\" [(ngModel)]=\"usuario.email \" #email=\"ngModel\" name=\"email \" id=\"Email\" placeholder=\"email\">\r\n                    <div *ngIf=\"email.invalid && (email.dirty || email.touched) && email.value === '' \" class=\"alert alert-danger\">\r\n                        El campo email es obligatorio\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\" columna2 col-md-6\">\r\n                <div class=\"form-group \">\r\n                    <label for=\"Telefono \">Teléfono</label>\r\n                    <input class=\"form-control \" required [(ngModel)]=\"usuario.telefono\" #telefono=\"ngModel\" name=\"telefono \" id=\"Telefono\" placeholder=\"teléfono\">\r\n                    <div *ngIf=\"telefono.invalid && (telefono.dirty || telefono.touched) && telefono.value === '' \" class=\"alert alert-danger\">\r\n                        El campo telefono es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group \">\r\n                    <label for=\"fechaNacimiento \">Fecha nacimiento\r\n                </label>\r\n                    <br>\r\n                    <input class=\"form-control\" type=\"date\" required [(ngModel)]=\"usuario.fechaNacimiento\" #fechaNaciento=\"ngModel\" name=\"fechaNacimiento \" step=\"1 \" min=\"1930-01-01 \" max=\"2019-12-31 \" value=\"2019-01-01 \">\r\n                    <div *ngIf=\"fechaNaciento.invalid && (fechaNaciento.dirty || fechaNaciento.touched) && fechaNaciento.value === null\" class=\"alert alert-danger\">\r\n                        El campo fecha Nacimiento es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group \">\r\n                    <label for=\"direccion \">Dirección</label>\r\n                    <input class=\"form-control \" required [(ngModel)]=\"usuario.direccion \" #direccion=\"ngModel\" name=\"direccion \" id=\"direccion \" placeholder=\"direccion\">\r\n                    <div *ngIf=\"direccion.invalid && (direccion.dirty || direccion.touched) && direccion.value === '' \" class=\"alert alert-danger\">\r\n                        El campo direccion es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group \">\r\n                    <label for=\"Localidad \">Localidad</label>\r\n                    <input class=\"form-control \" required [(ngModel)]=\"usuario.localidad\" #localidad=\"ngModel\" name=\"localidad \" id=\"localidad \" placeholder=\"localidad\">\r\n                    <div *ngIf=\"localidad.invalid && (localidad.dirty || localidad.touched) && localidad.value === '' \" class=\"alert alert-danger\">\r\n                        El campo localidad es obligatorio\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group \">\r\n                    <label for=\"Sexo \">Sexo</label>\r\n                    <select class=\"form-control\" required [(ngModel)]=\"usuario.sexo\" #sexo=\"ngModel\" name=\"sexo\">\r\n                    <option>Hombre</option> \r\n                    <option>Mujer</option> \r\n                </select>\r\n                    <div *ngIf=\"sexo.invalid && (sexo.dirty || sexo.touched) && sexo.value === '' \" class=\"alert alert-danger\">\r\n                        El campo sexo es obligatorio\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <button type=\"button\" (click)=\"singUp() \" style=\"margin: 10px \" class=\"btn btn-primary \" id=\"registrarse-button \">Registrarse</button>\r\n        </div>\r\n        <div class=\"row\" style=\"height: 50px;\"></div>\r\n    </form>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<br>\n<div class=\"container\">\n    <br>\n    <h2>Registro usuario</h2>\n    <br>\n    <form class=\"columnas col-md-12\">\n        <div class=\"row\">\n            <div class=\"columna1 col-md-6\">\n                <div class=\"form-group\">\n                    <label for=\"Dni\">Dni</label>\n                    <input class=\"form-control\" required [(ngModel)]=\"usuario.dni\" #dni=\"ngModel\" name=\"dni\" id=\"dni\" placeholder=\"dni \">\n                    <div *ngIf=\"dni.invalid && (dni.dirty || dni.touched) && dni.value === '' \" class=\"alert alert-danger\">\n                        El campo dni es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"Password\">Contraseña</label>\n                    <input type=\"password\" required class=\"form-control\" [(ngModel)]=\"usuario.password\" #password=\"ngModel\" name=\"password\" id=\"password\" placeholder=\"contraseña\">\n                    <div *ngIf=\"password.invalid && (password.dirty || password.touched) && password.value === '' \" class=\"alert alert-danger\">\n                        El campo password es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"Nombre\">Nombre</label>\n                    <input class=\"form-control\" required [(ngModel)]=\"usuario.nombre\" #nombre=\"ngModel\" name=\"nombre\" id=\"Nombre\" placeholder=\"nombre\">\n                    <div *ngIf=\"nombre.invalid && (nombre.dirty || nombre.touched) && nombre.value === '' \" class=\"alert alert-danger\">\n                        El campo nombre es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"Apellidos\">Apellidos</label>\n                    <input class=\"form-control\" required [(ngModel)]=\"usuario.apellidos\" #apellidos=\"ngModel\" name=\"apellidos\" id=\"Apellidos\" placeholder=\"apellidos\">\n                    <div *ngIf=\"apellidos.invalid && (apellidos.dirty || apellidos.touched) && apellidos.value === '' \" class=\"alert alert-danger\">\n                        El campo apellidos es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group \">\n                    <label for=\"Email \">Email</label>\n                    <input class=\"form-control\" required type=\"email\" [(ngModel)]=\"usuario.email \" #email=\"ngModel\" name=\"email \" id=\"Email\" placeholder=\"email\">\n                    <div *ngIf=\"email.invalid && (email.dirty || email.touched) && email.value === '' \" class=\"alert alert-danger\">\n                        El campo email es obligatorio\n                    </div>\n                </div>\n            </div>\n            <div class=\" columna2 col-md-6\">\n                <div class=\"form-group \">\n                    <label for=\"Telefono \">Teléfono</label>\n                    <input class=\"form-control \" required [(ngModel)]=\"usuario.telefono\" #telefono=\"ngModel\" name=\"telefono \" id=\"Telefono\" placeholder=\"teléfono\">\n                    <div *ngIf=\"telefono.invalid && (telefono.dirty || telefono.touched) && telefono.value === '' \" class=\"alert alert-danger\">\n                        El campo telefono es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group \">\n                    <label for=\"fechaNacimiento \">Fecha nacimiento\n                </label>\n                    <br>\n                    <input class=\"form-control\" type=\"date\" required [(ngModel)]=\"usuario.fechaNacimiento\" #fechaNaciento=\"ngModel\" name=\"fechaNacimiento \" step=\"1 \" min=\"1930-01-01 \" max=\"2019-12-31 \" value=\"2019-01-01 \">\n                    <div *ngIf=\"fechaNaciento.invalid && (fechaNaciento.dirty || fechaNaciento.touched) && fechaNaciento.value === null\" class=\"alert alert-danger\">\n                        El campo fecha Nacimiento es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group \">\n                    <label for=\"direccion \">Dirección</label>\n                    <input class=\"form-control \" required [(ngModel)]=\"usuario.direccion \" #direccion=\"ngModel\" name=\"direccion \" id=\"direccion \" placeholder=\"direccion\">\n                    <div *ngIf=\"direccion.invalid && (direccion.dirty || direccion.touched) && direccion.value === '' \" class=\"alert alert-danger\">\n                        El campo direccion es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group \">\n                    <label for=\"Localidad \">Localidad</label>\n                    <input class=\"form-control \" required [(ngModel)]=\"usuario.localidad\" #localidad=\"ngModel\" name=\"localidad \" id=\"localidad \" placeholder=\"localidad\">\n                    <div *ngIf=\"localidad.invalid && (localidad.dirty || localidad.touched) && localidad.value === '' \" class=\"alert alert-danger\">\n                        El campo localidad es obligatorio\n                    </div>\n                </div>\n                <div class=\"form-group \">\n                    <label for=\"Sexo \">Sexo</label>\n                    <select class=\"form-control\" required [(ngModel)]=\"usuario.sexo\" #sexo=\"ngModel\" name=\"sexo\">\n                    <option>Hombre</option> \n                    <option>Mujer</option> \n                </select>\n                    <div *ngIf=\"sexo.invalid && (sexo.dirty || sexo.touched) && sexo.value === '' \" class=\"alert alert-danger\">\n                        El campo sexo es obligatorio\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <button type=\"button\" (click)=\"singUp() \" style=\"margin: 10px \" class=\"btn btn-primary \" id=\"registrarse-button \">Registrarse</button>\n        </div>\n        <div class=\"row\" style=\"height: 50px;\"></div>\n    </form>\n</div>");
 
 /***/ }),
 
@@ -485,25 +498,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_registro_registro_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/registro/registro.component */ "./src/app/components/registro/registro.component.ts");
 /* harmony import */ var _components_pedircita_pedircita_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pedircita/pedircita.component */ "./src/app/components/pedircita/pedircita.component.ts");
 /* harmony import */ var _components_pacientemedico_pacientemedico_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/pacientemedico/pacientemedico.component */ "./src/app/components/pacientemedico/pacientemedico.component.ts");
-/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
-/* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
-/* harmony import */ var _components_cambiodatoscontacto_cambiodatoscontacto_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/cambiodatoscontacto/cambiodatoscontacto.component */ "./src/app/components/cambiodatoscontacto/cambiodatoscontacto.component.ts");
-/* harmony import */ var _components_cambiocontrasena_cambiocontrasena_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/cambiocontrasena/cambiocontrasena.component */ "./src/app/components/cambiocontrasena/cambiocontrasena.component.ts");
-/* harmony import */ var _components_cambiarcita_cambiarcita_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/cambiarcita/cambiarcita.component */ "./src/app/components/cambiarcita/cambiarcita.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _services_cita_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/cita.service */ "./src/app/services/cita.service.ts");
-/* harmony import */ var _services_usuario_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/usuario.service */ "./src/app/services/usuario.service.ts");
-/* harmony import */ var _services_utils_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/utils.service */ "./src/app/services/utils.service.ts");
-/* harmony import */ var _components_panelgestor_panelgestor_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/panelgestor/panelgestor.component */ "./src/app/components/panelgestor/panelgestor.component.ts");
-/* harmony import */ var _components_cambiodatospersonales_cambiodatospersonales_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/cambiodatospersonales/cambiodatospersonales.component */ "./src/app/components/cambiodatospersonales/cambiodatospersonales.component.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
+/* harmony import */ var _components_asignarhorario_asignarhorario_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/asignarhorario/asignarhorario.component */ "./src/app/components/asignarhorario/asignarhorario.component.ts");
+/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
+/* harmony import */ var _components_cambiodatoscontacto_cambiodatoscontacto_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/cambiodatoscontacto/cambiodatoscontacto.component */ "./src/app/components/cambiodatoscontacto/cambiodatoscontacto.component.ts");
+/* harmony import */ var _components_cambiocontrasena_cambiocontrasena_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/cambiocontrasena/cambiocontrasena.component */ "./src/app/components/cambiocontrasena/cambiocontrasena.component.ts");
+/* harmony import */ var _components_cambiarcita_cambiarcita_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/cambiarcita/cambiarcita.component */ "./src/app/components/cambiarcita/cambiarcita.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _services_cita_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/cita.service */ "./src/app/services/cita.service.ts");
+/* harmony import */ var _services_usuario_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/usuario.service */ "./src/app/services/usuario.service.ts");
+/* harmony import */ var _services_utils_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/utils.service */ "./src/app/services/utils.service.ts");
+/* harmony import */ var _components_panelgestor_panelgestor_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/panelgestor/panelgestor.component */ "./src/app/components/panelgestor/panelgestor.component.ts");
+/* harmony import */ var _components_cambiodatospersonales_cambiodatospersonales_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/cambiodatospersonales/cambiodatospersonales.component */ "./src/app/components/cambiodatospersonales/cambiodatospersonales.component.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
 
 
 
 // Rutas
 
 // Components
+
 
 
 
@@ -535,26 +550,27 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_registro_registro_component__WEBPACK_IMPORTED_MODULE_7__["RegistroComponent"],
             _components_pedircita_pedircita_component__WEBPACK_IMPORTED_MODULE_8__["PedircitaComponent"],
             _components_pacientemedico_pacientemedico_component__WEBPACK_IMPORTED_MODULE_9__["PacienteMedicoComponent"],
-            _components_cambiodatoscontacto_cambiodatoscontacto_component__WEBPACK_IMPORTED_MODULE_12__["CambiodatoscontactoComponent"],
-            _components_cambiocontrasena_cambiocontrasena_component__WEBPACK_IMPORTED_MODULE_13__["CambiocontrasenaComponent"],
-            _components_cambiarcita_cambiarcita_component__WEBPACK_IMPORTED_MODULE_14__["CambiarcitaComponent"],
+            _components_asignarhorario_asignarhorario_component__WEBPACK_IMPORTED_MODULE_10__["AsignarHorarioComponent"],
+            _components_cambiodatoscontacto_cambiodatoscontacto_component__WEBPACK_IMPORTED_MODULE_13__["CambiodatoscontactoComponent"],
+            _components_cambiocontrasena_cambiocontrasena_component__WEBPACK_IMPORTED_MODULE_14__["CambiocontrasenaComponent"],
+            _components_cambiarcita_cambiarcita_component__WEBPACK_IMPORTED_MODULE_15__["CambiarcitaComponent"],
             _components_pedircita_pedircita_component__WEBPACK_IMPORTED_MODULE_8__["PedircitaComponent"],
-            _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__["NavbarComponent"],
-            _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_11__["FooterComponent"],
-            _components_panelgestor_panelgestor_component__WEBPACK_IMPORTED_MODULE_20__["PanelgestorComponent"],
-            _components_cambiodatospersonales_cambiodatospersonales_component__WEBPACK_IMPORTED_MODULE_21__["CambiodatospersonalesComponent"]
+            _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_11__["NavbarComponent"],
+            _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_12__["FooterComponent"],
+            _components_panelgestor_panelgestor_component__WEBPACK_IMPORTED_MODULE_21__["PanelgestorComponent"],
+            _components_cambiodatospersonales_cambiodatospersonales_component__WEBPACK_IMPORTED_MODULE_22__["CambiodatospersonalesComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_16__["FormsModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"],
             _app_routes__WEBPACK_IMPORTED_MODULE_3__["APP_ROUTING"]
         ],
         providers: [
-            _services_cita_service__WEBPACK_IMPORTED_MODULE_17__["CitaService"],
-            _services_usuario_service__WEBPACK_IMPORTED_MODULE_18__["UsuarioService"],
-            _services_utils_service__WEBPACK_IMPORTED_MODULE_19__["UtilsService"],
-            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_22__["CookieService"]
+            _services_cita_service__WEBPACK_IMPORTED_MODULE_18__["CitaService"],
+            _services_usuario_service__WEBPACK_IMPORTED_MODULE_19__["UsuarioService"],
+            _services_utils_service__WEBPACK_IMPORTED_MODULE_20__["UtilsService"],
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_23__["CookieService"]
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })
@@ -586,6 +602,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_panelgestor_panelgestor_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/panelgestor/panelgestor.component */ "./src/app/components/panelgestor/panelgestor.component.ts");
 /* harmony import */ var _components_cambiodatospersonales_cambiodatospersonales_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/cambiodatospersonales/cambiodatospersonales.component */ "./src/app/components/cambiodatospersonales/cambiodatospersonales.component.ts");
 /* harmony import */ var _components_pacientemedico_pacientemedico_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pacientemedico/pacientemedico.component */ "./src/app/components/pacientemedico/pacientemedico.component.ts");
+/* harmony import */ var _components_asignarhorario_asignarhorario_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/asignarhorario/asignarhorario.component */ "./src/app/components/asignarhorario/asignarhorario.component.ts");
+
 
 
 
@@ -609,9 +627,74 @@ const APP_ROUTES = [
     { path: 'panelgestor', component: _components_panelgestor_panelgestor_component__WEBPACK_IMPORTED_MODULE_9__["PanelgestorComponent"] },
     { path: 'cambiodatospersonales', component: _components_cambiodatospersonales_cambiodatospersonales_component__WEBPACK_IMPORTED_MODULE_10__["CambiodatospersonalesComponent"] },
     { path: 'pacientemedico', component: _components_pacientemedico_pacientemedico_component__WEBPACK_IMPORTED_MODULE_11__["PacienteMedicoComponent"] },
+    { path: 'asignarhorario', component: _components_asignarhorario_asignarhorario_component__WEBPACK_IMPORTED_MODULE_12__["AsignarHorarioComponent"] },
     { path: '**', pathMatch: 'full', redirectTo: 'login' },
 ];
 const APP_ROUTING = _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(APP_ROUTES, { useHash: true });
+
+
+/***/ }),
+
+/***/ "./src/app/components/asignarhorario/asignarhorario.component.css":
+/*!************************************************************************!*\
+  !*** ./src/app/components/asignarhorario/asignarhorario.component.css ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYXNpZ25hcmhvcmFyaW8vYXNpZ25hcmhvcmFyaW8uY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/components/asignarhorario/asignarhorario.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/asignarhorario/asignarhorario.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: AsignarHorarioComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AsignarHorarioComponent", function() { return AsignarHorarioComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_services_usuario_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/usuario.service */ "./src/app/services/usuario.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
+
+
+
+
+
+let AsignarHorarioComponent = class AsignarHorarioComponent {
+    constructor(router, usuarioService, cookieService) {
+        this.router = router;
+        this.usuarioService = usuarioService;
+        this.cookieService = cookieService;
+        this.msg = '';
+    }
+    ngOnInit() { }
+    logIn(dniP, dniM) {
+        const ajustes = {
+            secure: true
+        };
+    }
+};
+AsignarHorarioComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: src_app_services_usuario_service__WEBPACK_IMPORTED_MODULE_3__["UsuarioService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] }
+];
+AsignarHorarioComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-asignarhorario',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./asignarhorario.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/asignarhorario/asignarhorario.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./asignarhorario.component.css */ "./src/app/components/asignarhorario/asignarhorario.component.css")).default]
+    })
+], AsignarHorarioComponent);
+
 
 
 /***/ }),
@@ -977,7 +1060,7 @@ CambiodatospersonalesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".containerA{\r\n\t\r\n\twidth:10px;\r\n\t\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jaXRhcy9jaXRhcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztDQUVDLFVBQVU7O0FBRVgiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2NpdGFzL2NpdGFzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyQXtcclxuXHRcclxuXHR3aWR0aDoxMHB4O1xyXG5cdFxyXG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".containerA{\n\t\n\twidth:10px;\n\t\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jaXRhcy9jaXRhcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztDQUVDLFVBQVU7O0FBRVgiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2NpdGFzL2NpdGFzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyQXtcblx0XG5cdHdpZHRoOjEwcHg7XG5cdFxufSJdfQ== */");
 
 /***/ }),
 
@@ -1887,8 +1970,8 @@ __webpack_require__.r(__webpack_exports__);
 let CitaService = class CitaService {
     constructor(httpClient) {
         this.httpClient = httpClient;
-        this.URL_ENDPOINT = "https://sistemacitasbackend.herokuapp.com/api/citas";
-        //private URL_ENDPOINT: string = "http://localhost:8080/api/citas";  // PARA CUANDO SE DESARROLLA
+        //private URL_ENDPOINT: string = "https://sistemacitasbackend.herokuapp.com/api/citas";
+        this.URL_ENDPOINT = "http://localhost:8080/api/citas"; // PARA CUANDO SE DESARROLLA
         this.tipo_data = '';
         // Http Options
         this.httpOptions = {
@@ -1999,8 +2082,8 @@ __webpack_require__.r(__webpack_exports__);
 let UsuarioService = class UsuarioService {
     constructor(httpClient) {
         this.httpClient = httpClient;
-        this.URL_ENDPOINT = "https://sistemacitasbackend.herokuapp.com/api/usuarios";
-        //private URL_ENDPOINT: string = "http://localhost:8080/api/usuarios";  // PARA CUANDO SE DESARROLLA
+        //private URL_ENDPOINT: string = "https://sistemacitasbackend.herokuapp.com/api/usuarios";
+        this.URL_ENDPOINT = "http://localhost:8080/api/usuarios"; // PARA CUANDO SE DESARROLLA
         this.tipo_data = '';
         // Http Options
         this.httpOptions = {

@@ -11,6 +11,7 @@ import { CitasComponent } from './components/citas/citas.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PedircitaComponent } from './components/pedircita/pedircita.component';
 import { PacienteMedicoComponent } from './components/pacientemedico/pacientemedico.component';
+import { AsignarHorarioComponent } from './components/asignarhorario/asignarhorario.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CambiodatoscontactoComponent } from './components/cambiodatoscontacto/cambiodatoscontacto.component';
@@ -41,6 +42,7 @@ import { CookieService } from 'ngx-cookie-service';
     RegistroComponent,
     PedircitaComponent,
     PacienteMedicoComponent,
+    AsignarHorarioComponent,
     CambiodatoscontactoComponent,
     CambiocontrasenaComponent,
     CambiarcitaComponent,
