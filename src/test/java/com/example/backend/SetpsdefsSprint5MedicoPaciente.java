@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.TestContextManager;
 
 import com.example.backend.models.dao.IPacienteMedicoDAO;
+import com.example.backend.models.entity.Medico;
 import com.example.backend.models.entity.PacienteMedico;
 
 import cucumber.api.java.en.Given;
@@ -25,6 +26,9 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	Request request;
 	@Autowired
 	IPacienteMedicoDAO pacienteMedicoRepo;
+	String medicoDNI;
+	String hora_inicio;
+	String hora_fin;
 	
 	@Given("^ClienteHttpMedicoPaciente$")
 	public void clientehttpmedicopaciente() {
@@ -49,7 +53,7 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 		  .addHeader("User-Agent", "PostmanRuntime/7.20.1")
 		  .addHeader("Accept", "*/*")
 		  .addHeader("Cache-Control", "no-cache")
-		  .addHeader("Postman-Token", "917cf0c5-8b35-4660-8a65-0b447e7d304b,0acbc3db-2df8-4973-913e-691c8b69d9c7")
+		  .addHeader("Postman-Token", "4d73c95e-5f10-4cf9-a56a-8e7918797b1a,fdc4d422-3f96-4a86-a4c0-ec962b2de69b")
 		  .addHeader("Host", "localhost:8080")
 		  .addHeader("Accept-Encoding", "gzip, deflate")
 		  .addHeader("Content-Length", "54")
@@ -116,5 +120,29 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 			 
 		   }
 	}
+	@Given("Tengo un medico y su horario dni_medico {string}, hora_inicio {string}, hora_fin {string}, Response {string}")
+	public void tengo_un_medico_y_su_horario_dni_medico_hora_inicio_hora_fin_Response(String string, String string2, String string3, String string4) {
+		 medicoDNI = string;
+		 hora_inicio = string2;
+		 hora_fin = string3;
+	}
+	
+	@When("asigno el horario al medico {string}")
+	public void asigno_el_horario_al_medico(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
+	}
+
+	@Then("El horario ha sido insertado correrctamente {string}")
+	public void el_horario_ha_sido_insertado_correrctamente(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
+	}
+	@Then("Recibo una respuesta horario Response {string}")
+	public void recibo_una_respuesta_horario_Response(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
+	}
+
 
 }
