@@ -13,8 +13,8 @@ import { RespuestLogin } from '../respuesta/respuesta-login';
 export class UsuarioService {
 
 
-  //private URL_ENDPOINT: string = "https://sistemacitasbackend.herokuapp.com/api/usuarios";
-  private URL_ENDPOINT: string = "http://localhost:8080/api/usuarios";  // PARA CUANDO SE DESARROLLA
+  private URL_ENDPOINT: string = "https://sistemacitasbackend.herokuapp.com/api/usuarios";
+  //private URL_ENDPOINT: string = "http://localhost:8080/api/usuarios";  // PARA CUANDO SE DESARROLLA
   private tipo_data: string = '';
 
   // Http Options
@@ -43,15 +43,25 @@ export class UsuarioService {
           catchError(this.handleError)
       )
   }
-
+  
+  /*asociarPacienteMedico(dniP: string, dniM: string): Observable<Usuario>{
+      
+      this.tipo_data = '/' + dniP + '/' + dniM;
+      return this.httpClient.post<Usuario>(this.URL_ENDPOINT + this.tipo_data)
+        .pipe(
+          retry(1),
+          catchError(this.handleLoginError)
+        )
+    }*/
+  
   validateLogin(nombre: string, password: string): Observable<RespuestLogin> {
-    this.tipo_data = '/' + nombre + '/' + password;
-    return this.httpClient.get<RespuestLogin>(this.URL_ENDPOINT + this.tipo_data)
-      .pipe(
-        retry(1),
-        catchError(this.handleLoginError)
-      )
-  }
+      this.tipo_data = '/' + nombre + '/' + password;
+      return this.httpClient.get<RespuestLogin>(this.URL_ENDPOINT + this.tipo_data)
+        .pipe(
+          retry(1),
+          catchError(this.handleLoginError)
+        )
+    }
 
 
   registrarUsuario(usuario: Usuario): Observable<Usuario> {

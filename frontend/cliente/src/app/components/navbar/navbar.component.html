@@ -5,15 +5,12 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Médico</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button *ngIf="!loginPasado" (click)="cerrarsesion()" class="btn btn-light my-2 my-sm-0" type="submit">LogOut</button>
+     	
+        <form class="form-inline my-2 my-lg-0" style="margin-left: 30%">
+            <button  class="btn btn-light my-2 my-sm-0" onclick="location.href=''" type="submit">Médico</button>
+       		 <button style="margin-left: 10px" *ngIf="!loginPasado" (click)="cerrarsesion()" class="btn btn-light my-2 my-sm-0" type="submit">LogOut</button>
         </form>
     </div>
 </nav>
 <hr>
-<br>
+<br><br>

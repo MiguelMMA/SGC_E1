@@ -1,14 +1,22 @@
+
+<div class="containerA">
+
+
+
 <button type="button" *ngIf="esMedico || !estaEnVistaMedico && !esPaciente" (click)="cambiarMedico_Paciente()" style="margin: 10px" class="btn btn-primary">Medico</button>
+<br><br><br>
+
+
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col" style="width: 200px;">Fecha</th>
-            <th scope="col" style="width: 100px;">Consulta</th>
-            <th scope="col" style="width: 300px;" *ngIf="!esMedico">Médico</th>
-            <th scope="col" style="width: 300px;" *ngIf="esMedico">Paciente</th>
-            <th scope="col" style="width: 200px;">Especialidad</th>
-            <th scope="col" style="width: 200px;">Borrar</th>
-            <th scope="col" style="width: 200px;">Modificar</th>
+            <th scope="col" style="width:5%">Fecha</th>
+            <th scope="col" style="width:5%">Consulta</th>
+            <th scope="col" style="width:5%" *ngIf="!esMedico">Médico</th>
+            <th scope="col" style="width:5%" *ngIf="esMedico">Paciente</th>
+            <th scope="col" style="width:5%">Especialidad</th>
+            <th scope="col" style="width:5%">Borrar</th>
+            <th scope="col" style="width:5%">Modificar</th>
         </tr>
     </thead>
     <tbody>
@@ -17,13 +25,44 @@
             <td>{{cita.consulta}}</td>
             <td>{{cita.dniMedico}}</td>
             <td>{{cita.especialidad}}</td>
-            <td><button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="eliminarcita(cita)" style="margin: 10px" class="btn btn-primary" id="eliminarcita-button">Eliminar Cita</button></td>
-            <td><button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="cambiarcita(cita)" style="margin: 10px" class="btn btn-primary" id="cambiarcita-button">Cambiar Cita</button></td>
+            <td><button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="eliminarcita(cita)"  class="btn btn-primary" id="eliminarcita-button">Eliminar Cita</button></td>
+            <td><button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="cambiarcita(cita)"  class="btn btn-primary" id="cambiarcita-button">Cambiar Cita</button></td>
         </tr>
     </tbody>
     <br>
 </table>
-<button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="pedircita()" style="margin: 10px" class="btn btn-primary" id="pedircita-button">Pedir Cita</button>
+ <br>
+  <br>
+   <br>
+  
+   
+
+
+
+  </div>   
+  <div class="container" style="margin-left:10%">  
+    <div class="dropdown">
+    	
+            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#">
+               Opciones Usuario 
+            </a>
+    		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+    		
+             <button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="pedircita()" style="margin: 10px" class="btn btn-primary" id="pedircita-button">Pedir Cita</button>
+             <br>
+             <button type="button" (click)="modificardatoscontacto()" style="margin: 10px" class="btn btn-primary" id="modificardatos-button">Modificar Datos Contacto</button>
+			<br>
+			 <button type="button" (click)="cambiarcontrasena()" style="margin: 10px" class="btn btn-primary" id="cambiocontrasena-button">Cambiar contraseña</button>
+			<br>
+			 <button type="button" (click)="modificardatosPersonales()" style="margin: 10px" class="btn btn-primary" id="modificardatosPersonales-button">Modificar Datos Personales</button>
+            <br>
+            </ul>
+             </div>
+              
+            
+        </div>
+   
+<!-- <button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="pedircita()" style="margin: 10px" class="btn btn-primary" id="pedircita-button">Pedir Cita</button>
 <button type="button" (click)="modificardatoscontacto()" style="margin: 10px" class="btn btn-primary" id="modificardatos-button">Modificar Datos Contacto</button>
 <button type="button" (click)="cambiarcontrasena()" style="margin: 10px" class="btn btn-primary" id="cambiocontrasena-button">Cambiar contraseña</button>
-<button type="button" (click)="modificardatosPersonales()" style="margin: 10px" class="btn btn-primary" id="modificardatosPersonales-button">Modificar Datos Personales</button>
+<button type="button" (click)="modificardatosPersonales()" style="margin: 10px" class="btn btn-primary" id="modificardatosPersonales-button">Modificar Datos Personales</button>-->
