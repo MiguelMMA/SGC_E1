@@ -140,14 +140,15 @@ public class UsuarioRestController {
 		String dniPaciente = jso.get("dniPaciente");
 		String dniMedico = jso.get("dniMedico");
 		Medico med = medicoRepo.findByDni(dniMedico);
-		Usuario user = usuarioService.findUserByDni(dniPaciente);
+		String dniPaciente2 = encriptador.encriptar(dniPaciente);
+		Usuario user = usuarioService.findUserByDni(dniPaciente2);
 		if(med == null) {
 			throw new Exception("El medico asignado no existe");
 		}
 		if(user == null) {	
 			throw new Exception("El usuario asignado no existe");
 		}
-		PacienteMedico pacMed = new PacienteMedico(dniPaciente, dniMedico, med.getEspecialidad());
+		PacienteMedico pacMed = new PacienteMedico(encriptador.desencriptar(dniPaciente2), dniMedico, med.getEspecialidad());
 		return pacMed;
 	}
 
