@@ -169,6 +169,10 @@ public class UsuarioRestController {
 			throw new Exception("El usuario no existe");
 		} else {
 			String especialidad = jso.get("especialidad");
+			Especialidad esp = especialidadService.findEspecialidadByNombre(especialidad);
+			if(esp == null) {
+				throw new Exception("La especialidad no existe");
+			}
 			Medico med = new Medico(dniMedico, user.getPassword(), user.getTipo(), user.getNombre(), user.getApellidos(), user.getDireccion(), user.getTelefono(), user.getEmail(), user.getSexo(), user.getLocalidad(), user.getCentroMedico(), user.getMedico(), user.getFechaNacimiento(), especialidad);
 			medicoRepo.insert(med);
 			return med;
