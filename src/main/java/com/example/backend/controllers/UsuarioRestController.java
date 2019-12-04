@@ -149,7 +149,12 @@ public class UsuarioRestController {
 			throw new Exception("El usuario asignado no existe");
 		}
 		PacienteMedico pacMed = new PacienteMedico(encriptador.desencriptar(dniPaciente2), dniMedico, med.getEspecialidad());
-		pacienteMedicoRepo.insert(pacMed);
+		PacienteMedico pacMed2 = pacienteMedicoRepo.findByPacienteEspecialidad(dniPaciente2, med.getEspecialidad());
+		if(pacMed2 == null) {
+			pacienteMedicoRepo.insert(pacMed);
+		} else {
+			throw new Exception("El paciente ya tiene un médico para esa especialidad");
+		}
 		return pacMed;
 	}
 
@@ -169,6 +174,10 @@ public class UsuarioRestController {
 			throw new Exception("El usuario no existe");
 		} else {
 			String especialidad = jso.get("especialidad");
+			Especialidad esp = especialidadService.findEspecialidadByNombre(especialidad);
+			if(esp == null) {
+				throw new Exception("La especialidad no existe");
+			}
 			Medico med = new Medico(dniMedico, user.getPassword(), user.getTipo(), user.getNombre(), user.getApellidos(), user.getDireccion(), user.getTelefono(), user.getEmail(), user.getSexo(), user.getLocalidad(), user.getCentroMedico(), user.getMedico(), user.getFechaNacimiento(), especialidad);
 			medicoRepo.insert(med);
 			return med;
