@@ -35,5 +35,8 @@ export class PanelgestorComponent implements OnInit {
     console.log(this.cookieService.get('rol'));
     this.router.navigate(['/citas'])
   }
+   modificardatoscontacto(){
+    this.router.navigate(['/pacientemedico'])
+  }
 
 }

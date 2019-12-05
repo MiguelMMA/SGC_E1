@@ -44,6 +44,18 @@ export class UsuarioService {
       )
   }
 
+  asociarPacienteMedico(dniP: string, dniM: string) {
+    /*let data = new Map<string, string>();
+    data.set('dniPaciente', dniP);
+    data.set('dniMedico', dniM);
+    var msg = JSON.stringify(data);*/
+    return this.httpClient.get("http://localhost:8080/api/pacienteMedico/"+ dniP+"/"+dniM)
+      .pipe(
+        retry(1),
+        catchError(this.handleLoginError)
+      )
+  }
+
   validateLogin(nombre: string, password: string): Observable<RespuestLogin> {
     this.tipo_data = '/' + nombre + '/' + password;
     return this.httpClient.get<RespuestLogin>(this.URL_ENDPOINT + this.tipo_data)

@@ -45,7 +45,6 @@ export class PedircitaComponent implements OnInit {
       response => {
         this.especialidades = response;
         console.log(this.especialidades);
-        console.log(this.especialidades[0]._nombre);
       }
     );
   }
@@ -113,7 +112,7 @@ export class PedircitaComponent implements OnInit {
     if (n==1) {
       this.esMedicoCabecera = false;
       this.obtenerespecialidades();
-      this.especialidadElegida = "Dermatologia";
+      this.especialidadElegida = this.especialidades[0]._nombre;
       this.obtenerMedicosEspecialidad();
     }
    

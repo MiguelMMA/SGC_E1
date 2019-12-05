@@ -1,0 +1,35 @@
+<br><br>
+<div class="container">
+
+    <h2>Asignación de Horario del Médico</h2>
+	<br>
+    <form class="columnas col col-md-12">
+        <div class="columna1 col-md-6">
+
+            <div class="columna2 col-md-6" *ngIf="!esMedicoCabecera">
+                <div class="form-group" id="especialistas">
+
+                    <input class="form-control"  #dniM name="dniM" id="dniM" placeholder=" Introduzca DNI del Médico">
+                    <br>
+                </div>
+                <div class="form-group" id="horaI">
+                    <label>Introduzca  la Hora de Inicio</label>
+                    <input class="form-control" type="time" #horaI name="horaI" id="horaI" min="07:00" max="15:00" step="900">
+                    <br>
+                </div>
+                <div class="form-group" id="horaF">
+                    <label>Introduzca  la Hora de Fin</label>
+                    <input class="form-control" type="time" #horaF name="horaF" id="horaF" min="07:00" max="15:00" step="900">
+                </div>
+            </div>
+        </div>
+        <div class="columna1 col-md-6">
+        	<br>
+            <div class="form-group">
+               <button type="button" style="margin-left: 30%" class="btn btn-primary" id="asignarHorario">Asignar</button>
+            </div>
+
+        </div>
+    </form>
+
+</div> 
