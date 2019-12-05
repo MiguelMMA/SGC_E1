@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.data.mongodb.repository.Query;
+
 import com.example.backend.models.entity.Especialidad;
 
 public interface IEspecialidadService {

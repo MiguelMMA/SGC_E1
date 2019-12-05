@@ -135,10 +135,8 @@ public class UsuarioRestController {
 		return pacMed;
 	}
 	
-	@PostMapping("/pacienteMedico")
-	public PacienteMedico crearPacienteMedico(@Valid @RequestBody Map<String, String> jso ) throws Exception {
-		String dniPaciente = jso.get("dniPaciente");
-		String dniMedico = jso.get("dniMedico");
+	@GetMapping("/pacienteMedico/{dniPaciente}/{dniMedico}")
+	public PacienteMedico crearPacienteMedico(@Valid @PathVariable("dniPaciente") String dniPaciente, @PathVariable("dniMedico") String dniMedico ) throws Exception {
 		Medico med = medicoRepo.findByDni(dniMedico);
 		String dniPaciente2 = encriptador.encriptar(dniPaciente);
 		Usuario user = usuarioService.findUserByDni(dniPaciente2);

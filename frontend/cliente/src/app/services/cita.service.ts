@@ -92,8 +92,8 @@ export class CitaService {
 
 
   getAllEspecialidades(dniPaciente: string): Observable<Especialidad[]>{
-    this.tipo_data = '/especialidades' + dniPaciente;
-    return this.httpClient.post<Especialidad[]>(this.URL_ENDPOINT + this.tipo_data)
+    this.tipo_data = '/especialidades/' + dniPaciente;
+    return this.httpClient.get<Especialidad[]>(this.URL_ENDPOINT + this.tipo_data)
       .pipe(
         retry(1),
         catchError(this.handleError)

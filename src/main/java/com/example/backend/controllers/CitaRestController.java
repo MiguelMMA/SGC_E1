@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.backend.models.dao.IEspecialidadDAO;
 import com.example.backend.models.dao.IPacienteMedicoDAO;
 import com.example.backend.models.entity.Cita;
 import com.example.backend.models.entity.Especialidad;
@@ -38,7 +39,7 @@ import com.example.backend.models.services.IUsuarioService;
 import com.example.backend.models.utiles.Encriptador;
 
 //@CrossOrigin(value = "https://sgcequipo1.herokuapp.com") 
-@CrossOrigin(value = "*") // PARA DESARROLLO
+@CrossOrigin("*") // PARA DESARROLLO
 @RestController
 @RequestMapping("api")
 public class CitaRestController {
@@ -65,7 +66,7 @@ public class CitaRestController {
 	private Encriptador encriptador = new Encriptador(key, cipher, algoritmo, keysize, clave);
 
 	@Autowired 
-	private IEspecialidadService especialidadService;
+	private IEspecialidadDAO especialidadService;
 	
 	/**
 	 * obtener todas las citas
@@ -185,7 +186,7 @@ public class CitaRestController {
 		ArrayList<String> listaHuecosLibres = new ArrayList<String>();
 		Medico medico = usuarioService.findMedicoByDni(dniMedico);
 		Horario horario = horarioService.findHorarioByDnimedicoAndDiaAndMesAndAno(dniMedico, dia, mes, ano);
-		Especialidad especialidad=especialidadService.findEspecialidadByNombre(medico.getEspecialidad());
+		Especialidad especialidad=especialidadService.findByNombre(medico.getEspecialidad());
 		int duracionCita = especialidad.get_duracionCita();
 		
 		ArrayList<Date> listaCitas = horario.getListaCitas();
@@ -210,12 +211,12 @@ public class CitaRestController {
      * Obtener todas las especialidades
      * @return especialidades
      */
-    @PostMapping("/citas/especialidades/{dniPaciente}")
+    @GetMapping("/citas/especialidades/{dniPaciente}")
 	public List<Especialidad> getAllEspecialidades(@PathVariable ("dniPaciente") String dniPaciente) {
     	List<PacienteMedico> pacMed = pacienteMedicoRepo.findByPaciente(dniPaciente);
     	List<Especialidad> lista = new ArrayList<>();
     	for(int i = 0; i < pacMed.size(); i++) {
-    		lista.add(especialidadService.findEspecialidadByNombre(pacMed.get(i).getEspecialidad()));
+    		lista.add(especialidadService.findByNombre(pacMed.get(i).getEspecialidad()));
     	}
 		return lista;
 	}
@@ -224,13 +225,14 @@ public class CitaRestController {
      * obtener los medicos de una especialidad
      * @param id
      * @return
+	 * @throws Exception 
      */
 	@GetMapping("/citas/especialidades/{nombreEspecialidad}/{dni}")
-	public String[] getEspecialidadesByid(@PathVariable ("nombreEspecialidad") String nombreEspecialidad, @PathVariable ("dni") String dniPaciente){
+	public String[] getEspecialidadesByid(@PathVariable ("nombreEspecialidad") String nombreEspecialidad, @PathVariable ("dni") String dniPaciente) throws Exception{
 		PacienteMedico pacMed = pacienteMedicoRepo.findByPacienteEspecialidad(dniPaciente, nombreEspecialidad);
-		Usuario med = usuarioService.findUserByDni(pacMed.getDniMedico());
+		Usuario med = usuarioService.findUserByDni(encriptador.encriptar(pacMed.getDniMedico()));
 		String[] lista = new String[1];
-		lista[0] = med.getNombre();
+		lista[0] = encriptador.desencriptar(med.getDni());
 		return lista;
 	}
 	
