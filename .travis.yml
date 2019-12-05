@@ -1,12 +1,10 @@
-
-
 language: java
 before_install:
  - chmod +x mvnw
 deploy:
- provider: heroku
- api_key:
-  secure: HEROKU_KEY
-  app: principal
+  provider: heroku
+  api_key:
+    secure: 867a9153-49e4-4e4e-b129-325aff093ba4
+  app: mantenimiento-sanidad
 
 
