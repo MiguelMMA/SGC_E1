@@ -38,5 +38,8 @@ export class PanelgestorComponent implements OnInit {
    modificardatoscontacto(){
     this.router.navigate(['/pacientemedico'])
   }
+   asignarhorariomedico(){
+    this.router.navigate(['/asignarhorario'])
+   }
 
 }
