@@ -21,12 +21,7 @@ export class AsignarHorarioComponent implements OnInit {
 
     ngOnInit() { }
 
-    logIn( dniP: string, dniM: string ) {
-        const ajustes = {
-            secure: true
-
-        }
-
-
+    asignarHorario( dniM: string, horaI: string, horaF: string ) {
+        
     }
 }

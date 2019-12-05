@@ -36,7 +36,7 @@ export class CambiodatospersonalesComponent implements OnInit {
           response => {
             console.log(this.usuario);
             
-            this.router.navigate(['/panelgestor'])
+            this.router.navigate(['/citas'])
             Swal.fire('Datos de personales usuario actualizados', 'Los datos personales han sido actualizados con éxito', 'success');
           }
         );
