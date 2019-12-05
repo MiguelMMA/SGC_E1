@@ -9,8 +9,8 @@ Feature: Creación de una relacion Medico-Paciente
     Given ClienteHttpMedicoPaciente
     When Envio peticion crear MedicoPaciente dni-user "<dni-user>", dni-medico "<dni-medico>", Response "<Response>"
     Then Recibo una respuesta  dni-user "<dni-user>", dni-medico "<dni-medico>", Response "<Response>"
-    Then la relacion ha sido guardada dni-user "<dni-user>", dni-medico "<dni-medico>", Response "<Response>"
-    Then borro la relacion dni-user "<dni-user>", dni-medico "<dni-medico>", Response "<Response>"
+    And la relacion ha sido guardada dni-user "<dni-user>", dni-medico "<dni-medico>", Response "<Response>"
+    And borro la relacion dni-user "<dni-user>", dni-medico "<dni-medico>", Response "<Response>"
 Examples:
     | dni-user   | dni-medico  |  Response  |
     |97637789Y   |65278762R    |    OK      |
