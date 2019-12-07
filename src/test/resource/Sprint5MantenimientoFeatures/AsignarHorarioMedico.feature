@@ -1,9 +1,9 @@
 
 @tag
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: AsignarHorarioMedico
   @tag2
-  Scenario Outline: Title of your scenario outline
+  Scenario Outline: Asignar Horario Medico
+    Given ClienteHttpMedicoPaciente
     Given Tengo un medico y su horario dni_medico "<dni_medico>", hora_inicio "<hora_inicio>", hora_fin "<hora_fin>", Response "<Response>"
     When asigno el horario al medico "<Response>"
     Then Recibo una respuesta horario Response "<Response>"

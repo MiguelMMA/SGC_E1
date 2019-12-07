@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.TestContextManager;
 
+import com.example.backend.models.dao.IMedicoDAO;
 import com.example.backend.models.dao.IPacienteMedicoDAO;
 import com.example.backend.models.entity.Medico;
 import com.example.backend.models.entity.PacienteMedico;
@@ -29,6 +30,8 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	String medicoDNI;
 	String hora_inicio;
 	String hora_fin;
+	@Autowired
+	private IMedicoDAO medicoRepo;
 	
 	@Given("^ClienteHttpMedicoPaciente$")
 	public void clientehttpmedicopaciente() {
@@ -45,21 +48,21 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	@When("^Envio peticion crear MedicoPaciente dni-user \"([^\"]*)\", dni-medico \"([^\"]*)\", Response \"([^\"]*)\"$")
 	public void envio_peticion_crear_MedicoPaciente_dni_user_dni_medico_Response(String arg1, String arg2, String arg3) {
 		MediaType mediaType = MediaType.parse("application/json");
-		RequestBody body = RequestBody.create(mediaType, "{\"dniMedico\": \"05726690N\",\"dniPaciente\": \"97637789Y\"}\n");
 		 request = new Request.Builder()
-		  .url("http://localhost:8080/api/pacienteMedico")
-		  .post(body)
+		  .url("http://localhost:8080/api/pacienteMedico/"+arg1+"/"+arg2)
+		  .get()
 		  .addHeader("Content-Type", "application/json")
 		  .addHeader("User-Agent", "PostmanRuntime/7.20.1")
 		  .addHeader("Accept", "*/*")
 		  .addHeader("Cache-Control", "no-cache")
-		  .addHeader("Postman-Token", "4d73c95e-5f10-4cf9-a56a-8e7918797b1a,fdc4d422-3f96-4a86-a4c0-ec962b2de69b")
+		  .addHeader("Postman-Token", "bb3a974b-12c3-4459-9aed-2925b12c6021,c5470f62-56a6-4b6a-952e-bb920097250a")
 		  .addHeader("Host", "localhost:8080")
 		  .addHeader("Accept-Encoding", "gzip, deflate")
 		  .addHeader("Content-Length", "54")
 		  .addHeader("Connection", "keep-alive")
 		  .addHeader("cache-control", "no-cache")
 		  .build();
+
 	}
 	@Then("^Recibo una respuesta  dni-user \"([^\"]*)\", dni-medico \"([^\"]*)\", Response \"([^\"]*)\"$")
 	public void recibo_una_respuesta_dni_user_dni_medico_Response(String arg1, String arg2, String arg3) {
@@ -112,8 +115,8 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	public void la_relacion_ha_sido_borrada_dni_medico_Response(String arg1, String arg2, String arg3) {
 		   if(arg3.equals("OK")) {
 				try {
-					//		pacienteMedico = pacienteMedicoRepo.findByCustom(arg1,arg2);
-					//		assertNull(pacienteMedico);
+						PacienteMedico pacienteMedico = pacienteMedicoRepo.findByCustom(arg1,arg2);
+							assertNull(pacienteMedico);
 				} catch (Exception e) {
 					fail("debería poder encontrarse la relación");
 				}
@@ -129,19 +132,36 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	
 	@When("asigno el horario al medico {string}")
 	public void asigno_el_horario_al_medico(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+		 request = new Request.Builder()
+				  .url("http://localhost:8080/api/medico/"+medicoDNI+"/"+hora_inicio+"/"+hora_fin)
+				  .get()
+				  .addHeader("cache-control", "no-cache")
+				  .addHeader("Postman-Token", "063631ca-0b75-4509-bb8b-8c69201b1858")
+				  .build();
 	}
 
 	@Then("El horario ha sido insertado correrctamente {string}")
-	public void el_horario_ha_sido_insertado_correrctamente(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+	public void el_horario_ha_sido_insertado_correrctamente(String arg1) {
+		   if(arg1.equals("OK")) {
+				try {
+							Medico medico = medicoRepo.findByDni(medicoDNI);
+					assertNotNull(medico.getHoraI());
+					assertNotNull(medico.getHoraF());
+				} catch (Exception e) {
+					fail("debería existir un horario");
+				}
+			 
+		   }
 	}
 	@Then("Recibo una respuesta horario Response {string}")
-	public void recibo_una_respuesta_horario_Response(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+	public void recibo_una_respuesta_horario_Response(String arg1) {
+		try {
+			Response response = client.newCall(request).execute();
+			String prueba= response.body().string();
+			JSONObject jsonObject = new JSONObject(prueba);
+		} catch (Exception e) {
+			fail("Error recibiendo la respuesta");
+		}
 	}
 
 
