@@ -56,6 +56,14 @@ export class UsuarioService {
       )
   }
 
+  asignarHorario(dniM: string, horaI: string, horaF: string) {
+    return this.httpClient.get("http://localhost:8080/api/medico/"+ dniM + "/" + horaI + "/" + horaF)
+      .pipe(
+        retry(1),
+        catchError(this.handleLoginError)
+      )
+  }
+
   validateLogin(nombre: string, password: string): Observable<RespuestLogin> {
     this.tipo_data = '/' + nombre + '/' + password;
     return this.httpClient.get<RespuestLogin>(this.URL_ENDPOINT + this.tipo_data)
