@@ -156,6 +156,16 @@ public class UsuarioRestController {
 		return pacMed;
 	}
 
+	@GetMapping("/medico/{dniMedico}/{horaI}/{horaF}")
+	public Medico horarioMedico(@Valid @PathVariable("dniMedico") String dniMedico, @PathVariable("horaI") String horaI, @PathVariable("horaF") String horaF) {
+		Medico medico = medicoRepo.findByDni(dniMedico);
+		medicoRepo.delete(medico);
+		medico.setHoraI(horaI);
+		medico.setHoraF(horaF);
+		medicoRepo.insert(medico);
+		return medico;
+	}
+	
 	@PostMapping("/medico")
 	public Medico registrarMedico(@Valid @RequestBody Map<String, String> jso) throws Exception {
 		String dniMedico = jso.get("dniMedico");
@@ -176,11 +186,12 @@ public class UsuarioRestController {
 			if(esp == null) {
 				throw new Exception("La especialidad no existe");
 			}
-			Medico med = new Medico(dniMedico, user.getPassword(), user.getTipo(), user.getNombre(), user.getApellidos(), user.getDireccion(), user.getTelefono(), user.getEmail(), user.getSexo(), user.getLocalidad(), user.getCentroMedico(), user.getMedico(), user.getFechaNacimiento(), especialidad);
+			Medico med = new Medico(dniMedico, user.getPassword(), user.getTipo(), user.getNombre(), user.getApellidos(), user.getDireccion(), user.getTelefono(), user.getEmail(), user.getSexo(), user.getLocalidad(), user.getCentroMedico(), user.getMedico(), user.getFechaNacimiento(), especialidad, "", "");
 			medicoRepo.insert(med);
 			return med;
 		}
 	}
+	
 	/**
 	 * Modificar un usuario para hacerlo médico
 	 * 
