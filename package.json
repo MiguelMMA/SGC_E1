@@ -46,7 +46,9 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "sweetalert2": "^9.1.6",
+    "ngx-cookie-service": "^2.2.0"
   },
   "engines": {
     "node": "~10.16.3",
