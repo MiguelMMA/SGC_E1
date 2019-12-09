@@ -1,0 +1,39 @@
+<br>
+<br>
+<div class="container">
+<div class="form-group">
+<button type="button" (click)="modificardatoscontacto()" style="margin-left:10%" class="btn btn-primary" id="pacienteMedico">Paciente-Médico</button>
+<button type="button" (click)="asignarhorariomedico()" style="margin-left:10%" class="btn btn-primary" id="horarioMedico">Horario-Médico</button>
+</div>
+<br>
+	<div class="table-responsive" position="fixed">
+<table class="table">
+    <thead class="thead-dark" position="fixed">
+        <tr>
+            <th scope="col" style="width: 6px;">DNI</th>
+            <th scope="col" style="width: 6px;">Nombre</th>
+            <th scope="col" style="width: 6px;">Apellidos</th>
+            <th scope="col" style="width: 6px;">Sexo</th>
+            <th scope="col" style="width: 6px;">Fecha Nacimiento</th>
+            <th scope="col" style="width: 6px;">Tipo</th>
+            <th scope="col" style="width: 6px;">Datos Personales</th>
+            <th scope="col" style="width: 6px;">Historial Citas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios">
+            <td scope="row">{{usuario.dni}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellidos}}</td>
+            <td>{{usuario.sexo}}</td>
+            <td>{{usuario.fechaNacimiento | date:"short"}}</td>
+            <td>{{usuario.tipo}}</td>
+            <td><button type="button" (click)="modificardatospersonales(usuario)" style="margin: 10px" class="btn btn-primary" id="datospersonales-button">Modificar</button></td>
+            <td><button type="button" (click)="historialcitas(usuario)" style="margin: 10px" class="btn btn-primary" id="historialcitas-button">Historial</button></td>
+        </tr>
+    
+    </tbody>
+    <br>
+</table>
+</div>
+</div>
