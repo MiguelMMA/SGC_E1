@@ -54,7 +54,6 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 		  .addHeader("cache-control", "no-cache")
 		  .addHeader("Postman-Token", "063631ca-0b75-4509-bb8b-8c69201b1858")
 		  .build();
-		 
 
 	}
 	@Then("^Recibo una respuesta  dni-user \"([^\"]*)\", dni-medico \"([^\"]*)\", Response \"([^\"]*)\"$")
