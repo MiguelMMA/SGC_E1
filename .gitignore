@@ -13,4 +13,3 @@ target/
 log/
 target/
 *.class
-/node_modules/
