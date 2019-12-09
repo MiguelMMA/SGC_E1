@@ -41,18 +41,17 @@ export class PedircitaComponent implements OnInit {
   }
   */
   obtenerespecialidades() {
-    return this.citaService.getAllEspecialidades().subscribe(
+    return this.citaService.getAllEspecialidades(this.usuario.dni).subscribe(
       response => {
         this.especialidades = response;
         console.log(this.especialidades);
-        console.log(this.especialidades[0]._nombre);
       }
     );
   }
 
   obtenerMedicosEspecialidad() {
     console.log(this.especialidadElegida);
-    return this.citaService.getMedicosEspecialidad(this.especialidadElegida).subscribe(
+    return this.citaService.getMedicosEspecialidad(this.especialidadElegida, this.usuario.dni).subscribe(
       response => {
         this.listaMedicos = response;
         this.medicoElegido = this.listaMedicos[0];
@@ -113,7 +112,7 @@ export class PedircitaComponent implements OnInit {
     if (n==1) {
       this.esMedicoCabecera = false;
       this.obtenerespecialidades();
-      this.especialidadElegida = "Dermatologia";
+      this.especialidadElegida = this.especialidades[0]._nombre;
       this.obtenerMedicosEspecialidad();
     }
    

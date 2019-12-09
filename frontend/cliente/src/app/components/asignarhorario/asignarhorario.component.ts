@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/entity/Usuario';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -22,12 +21,16 @@ export class AsignarHorarioComponent implements OnInit {
 
     ngOnInit() { }
 
-    logIn( dniP: string, dniM: string ) {
-        const ajustes = {
-            secure: true
-
-        }
-
-    
+    asignarHorario( dniM: string) {
+        var horaI = document.getElementById("horaI").value;
+        var horaF = document.getElementById("horaF").value;
+        this.usuarioService.asignarHorario(dniM, horaI, horaF).subscribe(
+            response => {                        
+                    Swal.fire('Asociación Correcta', 'success');
+                    this.router.navigate(['/panelgestor']);
+                
+                }
+    )
+       
     }
 }

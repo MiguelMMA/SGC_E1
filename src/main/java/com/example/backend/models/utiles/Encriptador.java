@@ -47,6 +47,7 @@ public class Encriptador {
 	}
 
 	public String encriptar(String texto) throws UnsupportedEncodingException {
+		addKey(clave);
 		String value = "";
 		try {
 			cipher = Cipher.getInstance(algoritmo);
@@ -77,6 +78,7 @@ public class Encriptador {
 	 * @throws UnsupportedEncodingException
 	 */
 	public String desencriptar(String texto) throws UnsupportedEncodingException {
+		addKey(clave);
 		String str = "";
 		try {
 			// byte[] value = new BASE64Decoder().decodeBuffer(texto);

@@ -20,37 +20,15 @@ export class PacienteMedicoComponent implements OnInit {
     ) { }
 
     ngOnInit() { }
-
-    logIn( dniP: string, dniM: string ) {
-        const ajustes = {
-            secure: true
-
-        }
-
-    /*if ( dniP.length === 0 || dniM.length === 0 ) {
-       Swal.fire( 'Error en los campos', "Debes introducir el DNI del Paciente y del Médico", 'error' );
-    } else {
-            
+  
+    asignarPacMed( dniP: string, dniM: string ) {        
         this.usuarioService.asociarPacienteMedico(dniP, dniM).subscribe(
-                response => {
-
-                    (this.respuestaPM = response)
-                    console.log(this.respuestaPM);
-                    if(this.respuestaPM.procesoOK){
-                        
+                response => {                        
                         Swal.fire('Asociación Correcta', 'success');
-                        this.router.navigate(['/panelgestor'])
-                    }else{
-                        
-                        Swal.fire('Asociación Incorrecta', 'error');
+                        this.router.navigate(['/panelgestor']);
                     
                     }
+        )
                     
-                }
-                
-        );
-
-        }*/
-
     }
 }
