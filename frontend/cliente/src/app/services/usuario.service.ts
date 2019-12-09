@@ -44,7 +44,7 @@ export class UsuarioService {
       )
   }
   asociarPacienteMedico(dniP: string, dniM: string) {
-    return this.httpClient.get("http://localhost:8080/api/pacienteMedico/"+ dniP+"/"+dniM)
+    return this.httpClient.get("https://servidor-mantenimiento.herokuapp.com/api/pacienteMedico/"+ dniP+"/"+dniM)
       .pipe(
         retry(1),
         catchError(this.handleLoginError)
@@ -52,7 +52,7 @@ export class UsuarioService {
   }
 
   asignarHorario(dniM: string, horaI: string, horaF: string) {
-    return this.httpClient.get("http://localhost:8080/api/medico/"+ dniM + "/" + horaI + "/" + horaF)
+    return this.httpClient.get("https://servidor-mantenimiento.herokuapp.com/api/medico/"+ dniM + "/" + horaI + "/" + horaF)
       .pipe(
         retry(1),
         catchError(this.handleLoginError)
