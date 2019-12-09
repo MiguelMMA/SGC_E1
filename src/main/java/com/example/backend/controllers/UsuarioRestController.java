@@ -147,7 +147,7 @@ public class UsuarioRestController {
 			throw new Exception("El usuario asignado no existe");
 		}
 		PacienteMedico pacMed = new PacienteMedico(encriptador.desencriptar(dniPaciente2), dniMedico, med.getEspecialidad());
-		PacienteMedico pacMed2 = pacienteMedicoRepo.findByPacienteEspecialidad(dniPaciente2, med.getEspecialidad());
+		PacienteMedico pacMed2 = pacienteMedicoRepo.findByPacienteEspecialidad(dniPaciente, med.getEspecialidad());
 		if(pacMed2 == null) {
 			pacienteMedicoRepo.insert(pacMed);
 		} else {
