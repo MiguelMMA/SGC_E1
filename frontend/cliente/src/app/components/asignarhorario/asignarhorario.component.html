@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <label>Introduzca  la Hora de Inicio</label>
-            <input class="form-control" type="time" #horaI name="horaI" id="horaI" min="00:00" max="23:00" step="900">
+            <input class="form-control" type="time" #horaI  name="horaI" id="horaI" min="00:00" max="23:00" step="900">
             <br>
         </div>
         <div class="form-group">
@@ -18,7 +18,7 @@
             <input class="form-control" type="time" #horaF name="horaF" id="horaF" min="00:00" max="23:00" step="900">
         </div>
         	<br>
-            <button type="button" (click)="asignarHorario(dniM.value)" style="margin-left: 30%" class="btn btn-primary" id="asignarHorario">Asignar</button>
+            <button type="button" (click)="asignarHorario(dniM.value, horaI.value, horaF.value)" style="margin-left: 30%" class="btn btn-primary" id="asignarHorario">Asignar</button>
     </form>
 
 </div> 
