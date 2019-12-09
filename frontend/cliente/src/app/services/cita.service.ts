@@ -12,7 +12,7 @@ export class CitaService {
 
 
   //private URL_ENDPOINT: string = "https://sistemacitasbackend.herokuapp.com/api/citas";
-  private URL_ENDPOINT: string = "http://localhost:8080/api/citas";  // PARA CUANDO SE DESARROLLA
+  private URL_ENDPOINT: string = "https://servidor-mantenimiento.herokuapp.com/api/citas";  // PARA CUANDO SE DESARROLLA
   private tipo_data: string = '';
 
   // Http Options

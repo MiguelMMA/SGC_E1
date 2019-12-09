@@ -21,9 +21,7 @@ export class AsignarHorarioComponent implements OnInit {
 
     ngOnInit() { }
 
-    asignarHorario( dniM: string) {
-        var horaI = document.getElementById("horaI").value;
-        var horaF = document.getElementById("horaF").value;
+    asignarHorario( dniM: string, horaI: string, horaF: string) {
         this.usuarioService.asignarHorario(dniM, horaI, horaF).subscribe(
             response => {                        
                     Swal.fire('Asociación Correcta', 'success');

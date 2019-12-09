@@ -14,7 +14,7 @@ export class UsuarioService {
 
 
   //private URL_ENDPOINT: string = "https://sistemacitasbackend.herokuapp.com/api/usuarios";
-  private URL_ENDPOINT: string = "http://localhost:8080/api/usuarios";  // PARA CUANDO SE DESARROLLA
+  private URL_ENDPOINT: string = "https://servidor-mantenimiento.herokuapp.com/api/usuarios";  // PARA CUANDO SE DESARROLLA
   private tipo_data: string = '';
 
   // Http Options
@@ -45,11 +45,7 @@ export class UsuarioService {
   }
 
   asociarPacienteMedico(dniP: string, dniM: string) {
-    /*let data = new Map<string, string>();
-    data.set('dniPaciente', dniP);
-    data.set('dniMedico', dniM);
-    var msg = JSON.stringify(data);*/
-    return this.httpClient.get("http://localhost:8080/api/pacienteMedico/"+ dniP+"/"+dniM)
+    return this.httpClient.get("https://servidor-mantenimiento.herokuapp.com/api/pacienteMedico/"+ dniP+"/"+dniM)
       .pipe(
         retry(1),
         catchError(this.handleLoginError)
@@ -57,7 +53,7 @@ export class UsuarioService {
   }
 
   asignarHorario(dniM: string, horaI: string, horaF: string) {
-    return this.httpClient.get("http://localhost:8080/api/medico/"+ dniM + "/" + horaI + "/" + horaF)
+    return this.httpClient.get("https://servidor-mantenimiento.herokuapp.com/api/medico/"+ dniM + "/" + horaI + "/" + horaF)
       .pipe(
         retry(1),
         catchError(this.handleLoginError)
