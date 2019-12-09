@@ -1,16 +1,4 @@
-target/
-target/
 
-# Intellij
-.idea/
-*.iml
-*.iws
-
-# Mac
-.DS_Store
-
-# Maven
-log/
 target/
-*.class
 /node_modules/
+
