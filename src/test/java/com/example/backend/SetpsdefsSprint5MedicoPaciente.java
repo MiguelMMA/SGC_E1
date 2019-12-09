@@ -49,18 +49,10 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	public void envio_peticion_crear_MedicoPaciente_dni_user_dni_medico_Response(String arg1, String arg2, String arg3) {
 		MediaType mediaType = MediaType.parse("application/json");
 		 request = new Request.Builder()
-		  .url("http://localhost:8080/api/pacienteMedico/"+arg1+"/"+arg2)
+		  .url("https://servidor-mantenimiento.herokuapp.com/api/pacienteMedico/"+arg1+"/"+arg2)
 		  .get()
-		  .addHeader("Content-Type", "application/json")
-		  .addHeader("User-Agent", "PostmanRuntime/7.20.1")
-		  .addHeader("Accept", "*/*")
-		  .addHeader("Cache-Control", "no-cache")
-		  .addHeader("Postman-Token", "bb3a974b-12c3-4459-9aed-2925b12c6021,c5470f62-56a6-4b6a-952e-bb920097250a")
-		  .addHeader("Host", "localhost:8080")
-		  .addHeader("Accept-Encoding", "gzip, deflate")
-		  .addHeader("Content-Length", "54")
-		  .addHeader("Connection", "keep-alive")
 		  .addHeader("cache-control", "no-cache")
+		  .addHeader("Postman-Token", "063631ca-0b75-4509-bb8b-8c69201b1858")
 		  .build();
 
 	}
@@ -102,7 +94,7 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 			MediaType mediaType = MediaType.parse("application/json");
 			RequestBody body = RequestBody.create(mediaType, "{\"dniPaciente\":\""+arg1+"\",\"dniMedico\":\""+arg2+"\"}");
 			 request = new Request.Builder()
-			  .url("http://localhost:8080/eliminarPacienteMedico")
+			  .url("https://servidor-mantenimiento.herokuapp.com/eliminarPacienteMedico")
 			  .post(body)
 			  .addHeader("Content-Type", "application/json")
 			  .addHeader("cache-control", "no-cache")
@@ -133,7 +125,7 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	@When("asigno el horario al medico {string}")
 	public void asigno_el_horario_al_medico(String string) {
 		 request = new Request.Builder()
-				  .url("http://localhost:8080/api/medico/"+medicoDNI+"/"+hora_inicio+"/"+hora_fin)
+				  .url("https://servidor-mantenimiento.herokuapp.com/api/medico/"+medicoDNI+"/"+hora_inicio+"/"+hora_fin)
 				  .get()
 				  .addHeader("cache-control", "no-cache")
 				  .addHeader("Postman-Token", "063631ca-0b75-4509-bb8b-8c69201b1858")
