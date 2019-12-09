@@ -1,29 +1,90 @@
-<button type="button" *ngIf="esMedico || !estaEnVistaMedico && !esPaciente" (click)="cambiarMedico_Paciente()" style="margin: 10px" class="btn btn-primary">Medico</button>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col" style="width: 200px;">Fecha</th>
-            <th scope="col" style="width: 100px;">Consulta</th>
-            <th scope="col" style="width: 300px;" *ngIf="!esMedico">Médico</th>
-            <th scope="col" style="width: 300px;" *ngIf="esMedico">Paciente</th>
-            <th scope="col" style="width: 200px;">Especialidad</th>
-            <th scope="col" style="width: 200px;">Borrar</th>
-            <th scope="col" style="width: 200px;">Modificar</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cita of citas">
-            <td scope="row">{{cita.fecha | date:"short"}}</td>
-            <td>{{cita.consulta}}</td>
-            <td>{{cita.dniMedico}}</td>
-            <td>{{cita.especialidad}}</td>
-            <td><button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="eliminarcita(cita)" style="margin: 10px" class="btn btn-primary" id="eliminarcita-button">Eliminar Cita</button></td>
-            <td><button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="cambiarcita(cita)" style="margin: 10px" class="btn btn-primary" id="cambiarcita-button">Cambiar Cita</button></td>
-        </tr>
-    </tbody>
-    <br>
-</table>
-<button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="pedircita()" style="margin: 10px" class="btn btn-primary" id="pedircita-button">Pedir Cita</button>
+
+<div class="container">
+
+
+	<div class="form-group">
+		<button type="button" *ngIf="esMedico || !estaEnVistaMedico && !esPaciente" (click)="cambiarMedico_Paciente()"
+			 class="btn btn-primary">Medico</button>
+	</div>
+	<br>
+	
+
+	<div class="table-responsive" position="fixed">
+		<table class="table">
+			<thead class="thead-dark" position="fixed">
+				<tr>
+					<th scope="col" style="width: 6px">Fecha</th>
+					<th scope="col" style="width: 6px">Consulta</th>
+					<th scope="col" style="width: 6px" *ngIf="!esMedico">Médico</th>
+					<th scope="col" style="width: 6px" *ngIf="esMedico">Paciente</th>
+					<th scope="col" style="width: 6px">Especialidad</th>
+					<th scope="col" style="width: 6px">Borrar</th>
+					<th scope="col" style="width: 6px">Modificar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let cita of citas">
+					<td>{{cita.fecha | date:"short"}}</td>
+					<td>{{cita.consulta}}</td>
+					<td>{{cita.dniMedico}}</td>
+					<td>{{cita.especialidad}}</td>
+					<td><button type="button"
+							*ngIf="!esMedico || !estaEnVistaMedico"
+							(click)="eliminarcita(cita)" class="btn btn-primary"
+							id="eliminarcita-button">Eliminar</button></td>
+					<td><button type="button"
+							*ngIf="!esMedico || !estaEnVistaMedico"
+							(click)="cambiarcita(cita)" class="btn btn-primary"
+							id="cambiarcita-button">Cambiar</button></td>
+				</tr>
+			</tbody>
+			<br>
+		</table>
+	</div>
+	
+
+
+</div>
+
+<!--<div class="btn-group">
+	<button type="button-primary" class="btn btn-primary dropdown-toggle"
+		data-toggle="dropdown">
+		Opciones Usuario <span class="caret"></span>
+	</button>
+
+	<ul class="dropdown-menu" role="menu">
+		<li><a *ngIf="!esMedico || !estaEnVistaMedico" (click)="pedircita()">Pedir Cita</a></li>
+		<li><a (click)="modificardatoscontacto()">Modificar Datos Contacto</a></li>
+		<li><a (click)="cambiarcontrasena()">Cambiar Contraseña</a></li>
+		<li class="divider"></li>
+		<li><a (click)="modificardatosPersonales()">Modificar Datos Personales</a></li>
+	</ul>
+</div>-->
+
+<br>
+<div class="dropdown" style="margin-left:10%"position="fixed">
+    	
+            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#">
+               Opciones Usuario 
+            </a>
+    		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+    		 <div class="form-group">
+             <button type="button" style="width:50%; max-width:45%" *ngIf="!esMedico || !estaEnVistaMedico" (click)="pedircita()"  class="btn btn-primary" id="pedircita-button">Pedir Cita</button>
+             
+             <button type="button" style="width:50%; margin-left:5%" (click)="modificardatoscontacto()"  class="btn btn-primary" id="modificardatos-button">Modificar Datos Contacto</button>
+			 </div>
+			 <div class="form-group">
+			 <button type="button" style="width:50%; max-width:45%" (click)="cambiarcontrasena()"  class="btn btn-primary" id="cambiocontrasena-button">Cambiar contraseña</button>
+			
+			 <button type="button" style="width:50%; margin-left:5%" (click)="modificardatosPersonales()"  class="btn btn-primary" id="modificardatosPersonales-button">Modificar Datos Personales</button>
+            </div>
+            </ul>
+             </div>
+              
+                
+      
+   
+<!-- <button type="button" *ngIf="!esMedico || !estaEnVistaMedico" (click)="pedircita()" style="margin: 10px" class="btn btn-primary" id="pedircita-button">Pedir Cita</button>
 <button type="button" (click)="modificardatoscontacto()" style="margin: 10px" class="btn btn-primary" id="modificardatos-button">Modificar Datos Contacto</button>
 <button type="button" (click)="cambiarcontrasena()" style="margin: 10px" class="btn btn-primary" id="cambiocontrasena-button">Cambiar contraseña</button>
-<button type="button" (click)="modificardatosPersonales()" style="margin: 10px" class="btn btn-primary" id="modificardatosPersonales-button">Modificar Datos Personales</button>
+<button type="button" (click)="modificardatosPersonales()" style="margin: 10px" class="btn btn-primary" id="modificardatosPersonales-button">Modificar Datos Personales</button>-->

@@ -20,7 +20,7 @@ export class PacienteMedicoComponent implements OnInit {
     ) { }
 
     ngOnInit() { }
-
+  
     asignarPacMed( dniP: string, dniM: string ) {        
         this.usuarioService.asociarPacienteMedico(dniP, dniM).subscribe(
                 response => {                        

@@ -12,9 +12,9 @@ import { RespuestLogin } from '../respuesta/respuesta-login';
 })
 export class UsuarioService {
 
-
+    private URL_ENDPOINT: string = "https://servidor-mantenimiento.herokuapp.com/api/usuarios";
   //private URL_ENDPOINT: string = "https://sistemacitasbackend.herokuapp.com/api/usuarios";
-  private URL_ENDPOINT: string = "http://localhost:8080/api/usuarios";  // PARA CUANDO SE DESARROLLA
+  //private URL_ENDPOINT: string = "http://localhost:8080/api/usuarios";  // PARA CUANDO SE DESARROLLA
   private tipo_data: string = '';
 
   // Http Options
@@ -43,12 +43,7 @@ export class UsuarioService {
           catchError(this.handleError)
       )
   }
-
   asociarPacienteMedico(dniP: string, dniM: string) {
-    /*let data = new Map<string, string>();
-    data.set('dniPaciente', dniP);
-    data.set('dniMedico', dniM);
-    var msg = JSON.stringify(data);*/
     return this.httpClient.get("http://localhost:8080/api/pacienteMedico/"+ dniP+"/"+dniM)
       .pipe(
         retry(1),
@@ -63,15 +58,14 @@ export class UsuarioService {
         catchError(this.handleLoginError)
       )
   }
-
   validateLogin(nombre: string, password: string): Observable<RespuestLogin> {
-    this.tipo_data = '/' + nombre + '/' + password;
-    return this.httpClient.get<RespuestLogin>(this.URL_ENDPOINT + this.tipo_data)
-      .pipe(
-        retry(1),
-        catchError(this.handleLoginError)
-      )
-  }
+      this.tipo_data = '/' + nombre + '/' + password;
+      return this.httpClient.get<RespuestLogin>(this.URL_ENDPOINT + this.tipo_data)
+        .pipe(
+          retry(1),
+          catchError(this.handleLoginError)
+        )
+    }
 
 
   registrarUsuario(usuario: Usuario): Observable<Usuario> {

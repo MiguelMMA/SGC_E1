@@ -1,5 +1,7 @@
+<br><br>
 <div class="container">
-    <h1>Pedir cita médica</h1>
+
+    <h2>Pedir cita médica</h2>
 
     <form class="columnas col col-md-12">
         <div class="columna1 col-md-6">
@@ -38,7 +40,10 @@
                 <br> Selecciona la hora deseada: <br>
                 <input class="form-control" type="time" #hora name="hora" id="hora" min="07:00" max="15:00" step="900">
             </div>
-            <button type="button" (click)="anadircita(fecha.value, hora.value)" style="margin: 10px" class="btn btn-primary" id="pedircita-button">Pedir cita</button>
+            <br>
+            <br>
+            <button type="button" (click)="anadircita(fecha.value, hora.value)" style="margin-left: 35%" class="btn btn-primary" id="pedircita-button">Pedir cita</button>
         </div>
     </form>
+
 </div>
