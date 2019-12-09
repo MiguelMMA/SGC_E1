@@ -44,6 +44,7 @@ import com.example.backend.models.utiles.Encriptador;
 @RequestMapping("api")
 public class CitaRestController {
 	
+	
 	@Autowired
 	private IPacienteMedicoDAO pacienteMedicoRepo;
 	
