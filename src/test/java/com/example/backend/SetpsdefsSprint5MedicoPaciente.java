@@ -58,6 +58,7 @@ public class SetpsdefsSprint5MedicoPaciente extends JunitTests2 {
 	@Then("^Recibo una respuesta  dni-user \"([^\"]*)\", dni-medico \"([^\"]*)\", Response \"([^\"]*)\"$")
 	public void recibo_una_respuesta_dni_user_dni_medico_Response(String arg1, String arg2, String arg3) {
 		try {
+			
 			Response response = client.newCall(request).execute();
 			String prueba= response.body().string();
 			JSONObject jsonObject = new JSONObject(prueba);
