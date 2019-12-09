@@ -6,6 +6,7 @@ import { RespuestLogin } from 'src/app/respuesta/respuesta-login';
 import { CookieService } from 'ngx-cookie-service';
 import { $ } from 'protractor';
 import { settings } from 'cluster';
+import { Injectable } from '@angular/core';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { settings } from 'cluster';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+@Injectable()
 export class LoginComponent implements OnInit {
 
   msg: string = '';
