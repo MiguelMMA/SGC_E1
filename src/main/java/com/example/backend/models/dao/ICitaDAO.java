@@ -13,6 +13,5 @@ public interface ICitaDAO extends MongoRepository<Cita, String> {
     List<Cita> findByDniMedico(String dniMedico);
     
     Cita findBy_id(String _id);
-    
 
 }

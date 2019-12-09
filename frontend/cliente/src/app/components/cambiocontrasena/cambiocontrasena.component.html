@@ -1,7 +1,6 @@
-<br><br>
 <div class="container">
-    <h2>Cambiar contraseña</h2>
-	<br>
+    <h1>Cambiar contraseña</h1>
+
     <form class="columnas">
         <div class="columna1">
             <div class="form-group">
@@ -9,6 +8,5 @@
                 <input type="password" class="form-control" [(ngModel)]="usuario.password" #password=ngModel name="password" id="password" placeholder="Contraseña">
             </div>
         </div>
-        <br><br>
-        <button type="button" (click)="cambiarpassword()" style="margin-left: 20%" class="btn btn-primary" id="cambiarpassword-button">Cambiar contraseña</button>
+        <button type="button" (click)="cambiarpassword()" style="margin: 10px" class="btn btn-primary" id="cambiarpassword-button">Cambiar contraseña</button>
     </form>
